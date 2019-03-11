@@ -1,8 +1,5 @@
 name,ring,quadrant,isNew,description
-"TypeScript","Adopt","Languages & Frameworks",FALSE,"Blah blah blah blah<br />blah blah blah blah<br />"
-"Java","Adopt","Languages & Frameworks",FALSE,"flksjfdsdl;fkj<br />sdfdslfknsd<br />sdfsldf<br />"
-"Scala","Trial","Languages & Frameworks",FALSE,"asldasdlkjsdasdas<br />"
-"Ruby","Hold","Languages & Frameworks",FALSE,"asdasldasdasd<br />adsdads<br />"
-"SNS","Assess","Tools",FALSE,"Because we like it<br />"
-"DynamoDB","Hold","Platforms",FALSE,"Relational<br />F<br />T<br />W<br />"
-"Cognito","Trial","Techniques",FALSE,"Just because it has a cool name."
+"Placeholder","hold","Techniques",FALSE,"TBD"
+"Placeholder","hold","Tools",FALSE,"TBD"
+"Placeholder","hold","Platforms",FALSE,"TBD"
+"Placeholder","hold","Languages & Frameworks",FALSE,"TBD"

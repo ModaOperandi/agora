@@ -4,6 +4,15 @@ quadrant_re="^#[[:space:]]+(.*)$"
 ring_re="^##[[:space:]]+(.*)$"
 name_re="^###[[:space:]]+(.*)$"
 filenames="$1"
+quadrant_1="Techniques"
+quadrant_1_set="FALSE"
+quadrant_2="Tools"
+quadrant_2_set="FALSE"
+quadrant_3="Platforms"
+quadrant_3_set="FALSE"
+quadrant_4="Languages & Frameworks"
+quadrant_4_set="FALSE"
+
 
 write_line () {
 	name="$1"
@@ -11,13 +20,25 @@ write_line () {
 	quadrant="$3"
 	description="$4"
 	if [[ "$description" != "" && "$quadrant" != "" && "$ring" != "" && "$name" != "" ]]; then
+        if [[ "$quadrant" == "$quadrant_1" ]]; then
+            quadrant_1_set="TRUE"
+        elif [[ "$quadrant" == "$quadrant_2" ]]; then
+            quadrant_2_set="TRUE"
+        elif [[ "$quadrant" == "$quadrant_3" ]]; then
+            quadrant_3_set="TRUE"
+        elif [[ "$quadrant" == "$quadrant_4" ]]; then
+            quadrant_4_set="TRUE"
+        else
+            echo "Invalid quadrant '$quadrant'."
+            exit 2
+        fi            
 		echo "\"$name\",\"$ring\",\"$quadrant\",FALSE,\"$description\""
 	fi
 }
 
 if [ "$filenames" = "" ]; then
     echo "Please specify the origin filename."
-    exit 1
+    exit 2
 fi
 
 echo "name,ring,quadrant,isNew,description"
@@ -51,3 +72,19 @@ for filename in "${filelist[@]}"; do
     done < "$filename"
     write_line "$name" "$ring" "$quadrant" "$description"
 done
+
+if [[ "$quadrant_1_set" != "TRUE" ]]; then
+    write_line "Placeholder" "hold" "$quadrant_1" "TBD"
+fi
+
+if [[ "$quadrant_2_set" != "TRUE" ]]; then
+    write_line "Placeholder" "hold" "$quadrant_2" "TBD"
+fi
+
+if [[ "$quadrant_3_set" != "TRUE" ]]; then
+    write_line "Placeholder" "hold" "$quadrant_3" "TBD"
+fi
+
+if [[ "$quadrant_4_set" != "TRUE" ]]; then
+    write_line "Placeholder" "hold" "$quadrant_4" "TBD"
+fi
