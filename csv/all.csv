@@ -1,5 +1,6 @@
 name,ring,quadrant,isNew,description
 "Placeholder","Adopt","Platforms",FALSE,"<p>TBD</p>"
+<<<<<<< HEAD
 "ReasonML","Trial","Languages & Frameworks",FALSE,"<p><a href=""https://reasonml.github.io/"">ReasonML</a> is an alternative syntax to <a href=""http://www.ocaml.org/"">OCaml</a> - a language that features functional, imperative, and object-oriented programming with a compiler that employs static typing and type inference. It was founded by the creator of ReactJS, <a href=""https://github.com/jordwalke"">Jordan Walke</a>, with the backing of Facebook, Bloomberg, and other individual contributors within the open source community.</p>
 
 <h4>Why?</h4>
@@ -298,4 +299,14 @@ add1(""one"", ""two"") //""one two""</p>
 - there's a lot of work going on at kotlinx libraries space - these libraries are truly multiplatform
 - libraries built specifically for Kotlin: Ktor, Koin and some nice DSL addons for existing libraries usable from Kotlin</p>"
 "Placeholder","Hold","Tools",FALSE,"<p>TBD</p>"
+=======
+"Terraform","Trial","Tools",FALSE,"<p>Moda should be capturing infrastructure assets in committed code (<a href="https://www.hashicorp.com/resources/what-is-infrastructure-as-code">why it is important</a>). Current thinking is that it is superior to <a href="#cloudformation">CloudFormation</a> for the following reasons:</p>
+
+<ol>
+<li>Terraform is multi-service. This does not mean that the same Terraform resource can be deployed indiscriminately across different clouds. But it does mean that resources across multiple cloud providers (or any provider, really) can be captured in Terraform - and thus be captured in the same workflow, pipelines, etc.</li>
+<li>Terraform uses the provider's APIs. As a result, Terraform - which can model anything available via the API - will always be ahead of CloudFormation in supported resources.</li>
+</ol>"
+"Placeholder","Assess","Languages & Frameworks",FALSE,"<p>TBD</p>"
+"CloudFormation","Hold","Tools",FALSE,"<p>Moda should be capturing infrastructure assets in committed code (<a href="https://www.hashicorp.com/resources/what-is-infrastructure-as-code">why it is important</a>). CloudFormation is the AWS-native way to do IaC. Please see commentary on <a href="#terraform">Terraform</a> for reasons why CloudFormation is not recommended.</p>"
+>>>>>>> Recommend Terraform over CloudFormation
 "Placeholder","Hold","Techniques",FALSE,"<p>TBD</p>"
