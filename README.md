@@ -28,3 +28,13 @@ Recommended technologies will naturally pass through a lifecycle as they get int
 Depending on your personal attitude and the needs of your project you can either stick to a stack of adopted technologies or experiment.
 
 If you feel that something is not listed here but should be - [submit a pull request](CONTRIBUTING.md).
+
+
+## Agora Council
+
+Though anyone in Moda Tech can contribute to the conversation here in the Agora, this conversation should be led - and decisions approved by the [Agora Council](COUNCIL.md).
+
+
+## Sources
+
+We are indebited to deep thinking done by strong engineers that came before us, specifically Gilt's [standards](https://github.com/gilt/standards)/[Arch Board](https://github.com/gilt/arch-board) and Flow's [standards](https://github.com/flowcommerce/standards).
