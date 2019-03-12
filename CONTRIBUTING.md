@@ -44,12 +44,12 @@ A note about the radar links: if you want to view changes to the radar but have 
 
 ## Merge approval
 
-Repository maintainers use LGTM (Looks Good To Me) in comments on the code
+@agora-council use LGTM (Looks Good To Me) in comments on the code
 review to indicate acceptance.
 
-A change requires LGTMs from an absolute majority of the MAINTAINERS. The
+A change requires LGTMs from an absolute majority of the CODEOWNERS. The
 Benevolent dictator for life reserves sole veto power. We recommend also
-getting an LGTM from the BDFL in advance of merging to avoid the possibility of
+getting a LGTM from the BDFL in advance of merging to avoid the possibility of
 a revert.
 
 
@@ -62,22 +62,22 @@ There are exceptions to the merge approval process. Currently these are:
   this repository
 
 
-## How can I become a maintainer?
+## How can I become a code owner?
 
-Make important contributions
+Make important contributions.
 
-Don't forget: being a maintainer is a time investment. Make sure you will have
-time to make yourself available. You don't have to be a maintainer to make a
+Don't forget: being a code owner is a time investment. Make sure you will have
+time to make yourself available. You don't have to be a code owner to make a
 difference on the project!
 
 
-## What is a maintainer's responsibility?
+## What is a code owner's responsibility?
 
-It is every maintainer's responsibility to:
+It is every code owner's responsibility to:
 
 1. Deliver prompt feedback and decisions on pull requests.
 2. Be available to anyone with questions, bug reports, criticism etc. on
-   their component. This includes Hip chat and GitHub requests
+   their component. This includes Slack and GitHub requests
 3. Make sure their component respects the philosophy, design and
    road map of the project.
 
@@ -92,7 +92,7 @@ All decisions, big and small, follow the same 3 steps:
 
 2. Discuss the pull request. Anyone can do this.
 
-3. Accept (`LGTM`) or refuse a pull request. The relevant maintainers
+3. Accept (`LGTM`) or refuse a pull request. The relevant code owners
    do this (see below "Who decides what?")
 
    1. Accepting pull requests
@@ -103,23 +103,23 @@ All decisions, big and small, follow the same 3 steps:
 
       3. If the changes needed to a PR are small, you can add a "LGTM once the following comments are adressed..." this will reduce needless back and forth.
 
-      4. If the PR only needs a few changes before being merged, any MAINTAINER can make a replacement PR that incorporates the existing commits and fixes the problems before a fast track merge.
+      4. If the PR only needs a few changes before being merged, any CODEOWNER can make a replacement PR that incorporates the existing commits and fixes the problems before a fast track merge.
 
    2. Closing pull requests
 
       1. If a PR appears to be abandoned, after having attempted to contact the original contributor, then a replacement PR may be made. Once the replacement PR is made, any contributor may close the original one.
 
-      2. If you are not sure if the pull request implements a good feature or you do not understand the purpose of the PR, ask the contributor to provide more documentation. If the contributor is not able to adequately explain the purpose of the PR, the PR may be closed by any MAINTAINER.
+      2. If you are not sure if the pull request implements a good feature or you do not understand the purpose of the PR, ask the contributor to provide more documentation. If the contributor is not able to adequately explain the purpose of the PR, the PR may be closed by any CODEOWNER.
 
-      3. If a MAINTAINER feels that the pull request is sufficiently architecturally flawed, or if the pull request needs significantly more design discussion before being considered, the MAINTAINER should close the pull request with a short explanation of what discussion still needs to be had. It is important not to leave such pull requests open, as this will waste both the MAINTAINER's time and the contributor's time. It is not good to string a contributor on for weeks or months, having them make many changes to a PR that will eventually be rejected.
+      3. If a CODEOWNER feels that the pull request is sufficiently architecturally flawed, or if the pull request needs significantly more design discussion before being considered, the CODEOWNER should close the pull request with a short explanation of what discussion still needs to be had. It is important not to leave such pull requests open, as this will waste both the CODEOWNER's time and the contributor's time. It is not good to string a contributor on for weeks or months, having them make many changes to a PR that will eventually be rejected.
 
 
 ## Who decides what?
 
-All decisions are pull requests, and the relevant maintainers make decisions
+All decisions are pull requests, and the relevant code owners make decisions
 by accepting or refusing pull requests. Review and acceptance by anyone is
 denoted by adding a comment in the pull request: `LGTM`. However, only
-currently listed `MAINTAINERS` are counted towards the required majority.
+currently listed `CODEOWNERS` are counted towards the required majority.
 
 Event repositories follow the timeless, highly efficient and totally unfair
 system known as [Benevolent dictator for
@@ -128,19 +128,18 @@ that all decisions are made in the end, by default, by &lt;BDFL&gt;. In
 practice decisions are spread across the maintainers with the goal of consensus
 prior to all merges.
 
-The current BDFL is listed by convention in the first line of the MAINTAINERS
-file with a suffix of "BDFL".
+The current BDFL is included in the @agora-bdfl Github group.
 
 
-## I'm a maintainer, should I make pull requests too?
+## I'm a code owner, should I make pull requests too?
 
 Yes. Nobody should ever push to master directly. All changes should be made
 through a pull request.
 
 
-## Who assigns maintainers?
+## Who assigns code owners?
 
-MAINTAINERS are changed via pull requests and the standard approval
+CODEOWNERS are changed via pull requests and the standard approval
 process - i.e. create an issue and make a pull request with the
 changes to the MAINTAINERS file.
 
