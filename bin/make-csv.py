@@ -23,8 +23,9 @@ def writeLine(name, ring, quadrant, description):
 def addPlaceholder(quadrant):
     for ring in rings:
         if len(rows[ring]) == 0:
-            rows[ring].append(["Placeholder", quadrant, "TBD"])
-            break
+            writeLine("Placeholder", ring, quadrant, "TBD")
+            return
+    writeLine("Placeholder", rings[3], quadrant, "TBD")
 
 def unusedQuadrant():
     for quadrant in quadrants.keys():
