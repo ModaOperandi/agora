@@ -12,6 +12,14 @@ quadrant_3="Platforms"
 quadrant_3_set="FALSE"
 quadrant_4="Languages & Frameworks"
 quadrant_4_set="FALSE"
+ring_1="Assess"
+ring_1_set="FALSE"
+ring_2="Trial"
+ring_2_set="FALSE"
+ring_3="Adopt"
+ring_3_set="FALSE"
+ring_4="Hold"
+ring_4_set="FALSE"
 
 
 write_line () {
@@ -31,9 +39,45 @@ write_line () {
         else
             echo "Invalid quadrant '$quadrant'."
             exit 2
-        fi            
+        fi
+        if [[ "$ring" == "$ring_1" ]]; then
+            ring_1_set="TRUE"
+        elif [[ "$ring" == "$ring_2" ]]; then
+            ring_2_set="TRUE"
+        elif [[ "$ring" == "$ring_3" ]]; then
+            ring_3_set="TRUE"
+        elif [[ "$ring" == "$ring_4" ]]; then
+            ring_4_set="TRUE"
+        else
+            echo "Invalid ring '$ring'."
+            exit 2
+        fi
 		echo "\"$name\",\"$ring\",\"$quadrant\",FALSE,\"$description\""
 	fi
+}
+
+function unused_ring () {
+    if [[ "$ring_1_set" == "FALSE" ]]; then
+        echo "$ring_1"
+    elif [[ "$ring_2_set" == "FALSE" ]]; then
+        echo "$ring_2"
+    elif [[ "$ring_3_set" == "FALSE" ]]; then
+        echo "$ring_3"
+    else
+        echo "$ring_4"
+    fi
+}
+
+unused_quadrant () {
+    if [[ "$quadrant_1_set" == "FALSE" ]]; then
+        echo "$quadrant_1"
+    elif [[ "$quadrant_2_set" == "FALSE" ]]; then
+        echo "$quadrant_2"
+    elif [[ "$quadrant_3_set" == "FALSE" ]]; then
+        echo "$quadrant_3"
+    else
+        echo "$quadrant_4"
+    fi
 }
 
 if [ "$filenames" = "" ]; then
@@ -74,17 +118,17 @@ for filename in "${filelist[@]}"; do
 done
 
 if [[ "$quadrant_1_set" != "TRUE" ]]; then
-    write_line "Placeholder" "hold" "$quadrant_1" "TBD"
+    write_line "Placeholder" $(unused_ring) "$quadrant_1" "TBD"
 fi
 
 if [[ "$quadrant_2_set" != "TRUE" ]]; then
-    write_line "Placeholder" "hold" "$quadrant_2" "TBD"
+    write_line "Placeholder" $(unused_ring) "$quadrant_2" "TBD"
 fi
 
 if [[ "$quadrant_3_set" != "TRUE" ]]; then
-    write_line "Placeholder" "hold" "$quadrant_3" "TBD"
+    write_line "Placeholder" $(unused_ring) "$quadrant_3" "TBD"
 fi
 
 if [[ "$quadrant_4_set" != "TRUE" ]]; then
-    write_line "Placeholder" "hold" "$quadrant_4" "TBD"
+    write_line "Placeholder" $(unused_ring) "$quadrant_4" "TBD"
 fi
