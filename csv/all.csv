@@ -1,5 +1,5 @@
 name,ring,quadrant,isNew,description
-"Placeholder","Assess","Techniques",FALSE,"TBD"
-"Placeholder","Trial","Tools",FALSE,"TBD"
-"Placeholder","Adopt","Platforms",FALSE,"TBD"
-"Placeholder","Hold","Languages & Frameworks",FALSE,"TBD"
+Placeholder,Adopt,Techniques,FALSE,TBD
+Placeholder,Trial,Tools,FALSE,TBD
+Placeholder,Assess,Platforms,FALSE,TBD
+Placeholder,Hold,Languages & Frameworks,FALSE,TBD

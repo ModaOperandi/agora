@@ -4,6 +4,14 @@ quadrant_re="^#[[:space:]]+(.*)$"
 ring_re="^##[[:space:]]+(.*)$"
 name_re="^###[[:space:]]+(.*)$"
 filenames="$1"
+adopt_rows=()
+adopt_name="Adopt"
+trial_rows=()
+trial_name="Trial"
+assess_rows=()
+assess_name="Assess"
+hold_rows=()
+hold_name="Hold"
 quadrant_1="Techniques"
 quadrant_1_set="FALSE"
 quadrant_2="Tools"
@@ -12,21 +20,13 @@ quadrant_3="Platforms"
 quadrant_3_set="FALSE"
 quadrant_4="Languages & Frameworks"
 quadrant_4_set="FALSE"
-ring_1="Assess"
-ring_1_set="FALSE"
-ring_2="Trial"
-ring_2_set="FALSE"
-ring_3="Adopt"
-ring_3_set="FALSE"
-ring_4="Hold"
-ring_4_set="FALSE"
-
 
 write_line () {
 	name="$1"
 	ring="$2"
 	quadrant="$3"
 	description="$4"
+    row="$name,$ring,$quadrant,FALSE,$description"
 	if [[ "$description" != "" && "$quadrant" != "" && "$ring" != "" && "$name" != "" ]]; then
         if [[ "$quadrant" == "$quadrant_1" ]]; then
             quadrant_1_set="TRUE"
@@ -40,31 +40,33 @@ write_line () {
             echo "Invalid quadrant '$quadrant'."
             exit 2
         fi
-        if [[ "$ring" == "$ring_1" ]]; then
-            ring_1_set="TRUE"
-        elif [[ "$ring" == "$ring_2" ]]; then
-            ring_2_set="TRUE"
-        elif [[ "$ring" == "$ring_3" ]]; then
-            ring_3_set="TRUE"
-        elif [[ "$ring" == "$ring_4" ]]; then
-            ring_4_set="TRUE"
+        if [[ "$ring" == "$adopt_name" ]]; then
+            adopt+=($row)
+        elif [[ "$ring" == "$trial_name" ]]; then
+            trial+=($row)
+        elif [[ "$ring" == "$assess_name" ]]; then
+            assess+=($row)
+        elif [[ "$ring" == "$hold_name" ]]; then
+            hold+=($row)
         else
             echo "Invalid ring '$ring'."
             exit 2
         fi
-		echo "\"$name\",\"$ring\",\"$quadrant\",FALSE,\"$description\""
 	fi
 }
 
-function unused_ring () {
-    if [[ "$ring_1_set" == "FALSE" ]]; then
-        echo "$ring_1"
-    elif [[ "$ring_2_set" == "FALSE" ]]; then
-        echo "$ring_2"
-    elif [[ "$ring_3_set" == "FALSE" ]]; then
-        echo "$ring_3"
+add_placeholder () {
+    name="Placeholder"
+    quadrant="$1"
+    description="TBD"
+    if [[ "${#adopt[@]}" == "0" ]]; then
+        adopt+=("$name,$adopt_name,$quadrant,FALSE,$description")
+    elif [[ "${#trial[@]}" == "0" ]]; then
+        trial+=("$name,$trial_name,$quadrant,FALSE,$description")
+    elif [[ "${#assess[@]}" == "0" ]]; then
+        assess+=("$name,$assess_name,$quadrant,FALSE,$description")
     else
-        echo "$ring_4"
+        hold+=("$name,$hold_name,$quadrant,FALSE,$description")
     fi
 }
 
@@ -85,7 +87,6 @@ if [ "$filenames" = "" ]; then
     exit 2
 fi
 
-echo "name,ring,quadrant,isNew,description"
 description=""
 name=""
 quadrant=""
@@ -118,17 +119,54 @@ for filename in "${filelist[@]}"; do
 done
 
 if [[ "$quadrant_1_set" != "TRUE" ]]; then
-    write_line "Placeholder" $(unused_ring) "$quadrant_1" "TBD"
+    add_placeholder "$quadrant_1"
 fi
 
 if [[ "$quadrant_2_set" != "TRUE" ]]; then
-    write_line "Placeholder" $(unused_ring) "$quadrant_2" "TBD"
+    add_placeholder "$quadrant_2"
 fi
 
 if [[ "$quadrant_3_set" != "TRUE" ]]; then
-    write_line "Placeholder" $(unused_ring) "$quadrant_3" "TBD"
+    add_placeholder "$quadrant_3"
 fi
 
 if [[ "$quadrant_4_set" != "TRUE" ]]; then
-    write_line "Placeholder" $(unused_ring) "$quadrant_4" "TBD"
+    add_placeholder "$quadrant_4"
 fi
+
+if [[ "${#adopt[@]}" == "0" ]]; then
+    add_placeholder "$(unused_quadrant)"
+fi
+
+if [[ "${#trial[@]}" == "0" ]]; then
+    add_placeholder "$(unused_quadrant)"
+fi
+
+if [[ "${#assess[@]}" == "0" ]]; then
+    add_placeholder "$(unused_quadrant)"
+fi
+
+if [[ "${#hold[@]}" == "0" ]]; then
+    add_placeholder "$(unused_quadrant)"
+fi
+
+echo "name,ring,quadrant,isNew,description"
+for row in "${adopt[@]}"
+do
+    echo "$row"
+done
+
+for row in "${trial[@]}"
+do
+    echo "$row"
+done
+
+for row in "${assess[@]}"
+do
+    echo "$row"
+done
+
+for row in "${hold[@]}"
+do
+    echo "$row"
+done
