@@ -4,7 +4,7 @@ Per [Wikipedia](https://en.wikipedia.org/wiki/Agora), _the agora was a central p
 
 The goal of the Agora is to make it transparent what technological decisions Moda Tech is making, and why. One of the main points of this repo is the [technical recommendations](recommendations) section, which follows the same format as the [Thoughtworks Technology Radar](https://www.thoughtworks.com/radar). The recommendations are grouped based on top-level concern ([AWS](recommendations/AWS.md), [microservices](recommendations/microservices.md), [datastores](recommendations/datastores.md), etc) and broken out into four general categories: *Techniques*, *Tools*, *Platforms*, and *Languages & Frameworks*. Where it gets interesting is the [lifecycle](#technology-radar-lifecycle) that recommended technologies pass through.
 
-Please view the [full Radar](https://radar.thoughtworks.com/?sheetId=https%3A%2F%2Fraw.githubusercontent.com%2FModaOperandi%2Fstandards%2Fmaster%2Fcsv%2Fall.csv) or [invididual subsections](recommendations).
+Please view the [full Radar](https://radar.thoughtworks.com/?sheetId=https%3A%2F%2Fraw.githubusercontent.com%2FModaOperandi%2Fagora%2Fmaster%2Fcsv%2Fall.csv) or [invididual subsections](recommendations).
 
 ## Contributing
 After adding new items, please run [bin/make-csvs.sh](bin/make-csvs.sh) locally and commit the resultant CSVs. You will need Python and markdown2 (`pip install markdown2`) installed locally.
