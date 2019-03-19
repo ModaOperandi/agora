@@ -77,4 +77,4 @@ for ring in rings:
 print "name,ring,quadrant,isNew,description"
 for ring in rings:
     for row in rows[ring]:
-        print "\"%s\",\"%s\",\"%s\",FALSE,\"%s\"" % (row[0], ring, row[1], markdown2.markdown(row[2]).strip())
+        print "\"%s\",\"%s\",\"%s\",FALSE,\"%s\"" % (row[0], ring, row[1], markdown2.markdown(row[2]).strip().replace("\"", "\"\""))
