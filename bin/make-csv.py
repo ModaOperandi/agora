@@ -1,3 +1,4 @@
+import markdown2
 import re
 import sys
 
@@ -62,8 +63,6 @@ for filename in filenames:
                     name = name_match.group(1)
                     description = ""
                 else:
-                    if description != "":
-                        description += "<br />"
                     description += line
 writeLine(name, ring, quadrant, description)
 
@@ -78,4 +77,4 @@ for ring in rings:
 print "name,ring,quadrant,isNew,description"
 for ring in rings:
     for row in rows[ring]:
-        print "\"%s\",\"%s\",\"%s\",FALSE,\"%s\"" % (row[0], ring, row[1], row[2])
+        print "\"%s\",\"%s\",\"%s\",FALSE,\"%s\"" % (row[0], ring, row[1], markdown2.markdown(row[2]).strip())

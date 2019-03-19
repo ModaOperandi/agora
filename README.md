@@ -7,7 +7,7 @@ The goal of the Agora is to make it transparent what technological decisions Mod
 Please view the [full Radar](https://radar.thoughtworks.com/?sheetId=https%3A%2F%2Fraw.githubusercontent.com%2FModaOperandi%2Fstandards%2Fmaster%2Fcsv%2Fall.csv) or [invididual subsections](recommendations).
 
 ## Contributing
-After adding new items, please run [bin/make-csvs.sh](bin/make-csvs.sh) locally and commit the resultant CSVs. You will need Python installed locally.
+After adding new items, please run [bin/make-csvs.sh](bin/make-csvs.sh) locally and commit the resultant CSVs. You will need Python and markdown2 (`pip install markdown2`) installed locally.
 
 
 ## Technology Radar lifecycle
