@@ -33,8 +33,8 @@ There is an actively supported library, [ReasonReact](https://reasonml.github.io
 
 - [bs-platform](https://github.com/BuckleScript/bucklescript/issues/1187), the BuckleScript runtime, is bundled by webpack with our code. They are [working on a solution](https://bucklescript.github.io/blog/2018/12/05/release-4-0-8) to separate the runtime and the standard library, so that generated JS can be shipped as a library without the need of a bundler.
 - The learning curve is steep. People coming with experience in typescript or another strongly typed language will have a way easier time adjusting, otherwise it can be quite challenging.
-- A small sample size for existing examples of widely solved problems. For example, it's been hard to find examples of how to do intricate things in Reason while developing the standard library, and we've had to stumble for a long time to fix relatively simple problems (compared to JS). Although, that problem has been easing with time and experience.
-- Smaller audience compared to typescript.
+- Smaller audience for problems on Stackoverflow or other forums.
+- Compared to typescript, adoption is less, so there are less bindings to existing JS libraries.
 
 #### Positives
 
