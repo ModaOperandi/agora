@@ -33,6 +33,10 @@ Depending on your personal attitude and the needs of your project you can either
 If you feel that something is not listed here but should be - [submit a pull request](CONTRIBUTING.md).
 
 
+## How to use this
+The conversation here in Agora can be used as a reference in all aspects of the development lifecycle, most prominently in the production of and feedback given to RFCs. Please refer to the [Moda Tech RFC process](https://github.com/ModaOperandi/rfc) for more details.
+
+
 ## Agora Council
 
 Though anyone in Moda Tech can contribute to the conversation here in the Agora, this conversation should be led - and decisions approved by the [Agora Council](COUNCIL.md).
