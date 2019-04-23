@@ -1,5 +1,4 @@
 # Agora: Moda Operandi's Technical Standards Forum
-
 Per [Wikipedia](https://en.wikipedia.org/wiki/Agora), _the agora was a central public space in ancient Greek city-states. The literal meaning of the word is "gathering place" or "assembly". The agora was the center of the athletic, artistic, spiritual and political life of the city._ Within Moda Tech, the Agora is the public center of technological discussion.
 
 The goal of the Agora is to make it transparent what technological decisions Moda Tech is making, and why. One of the main points of this repo is the [technical recommendations](recommendations) section, which follows the same format as the [Thoughtworks Technology Radar](https://www.thoughtworks.com/radar). The recommendations are grouped based on top-level concern ([AWS](recommendations/AWS.md), [microservices](recommendations/microservices.md), [datastores](recommendations/datastores.md), etc) and broken out into four general categories: *Techniques*, *Tools*, *Platforms*, and *Languages & Frameworks*. Where it gets interesting is the [lifecycle](#technology-radar-lifecycle) that recommended technologies pass through.
@@ -11,7 +10,6 @@ After adding new items, please run [bin/make-csvs.sh](bin/make-csvs.sh) locally 
 
 
 ## Technology Radar lifecycle
-
 Recommended technologies will naturally pass through a lifecycle as they get introduced to Moda Tech and are either adopted widely or decided against. The lifecycle is as follows:
 
 <img align="right" src="images/radar-state-machine.png">
@@ -38,10 +36,12 @@ The conversation here in Agora can be used as a reference in all aspects of the 
 
 
 ## Agora Council
-
 Though anyone in Moda Tech can contribute to the conversation here in the Agora, this conversation should be led - and decisions approved by the [Agora Council](COUNCIL.md).
 
 
-## Sources
+## Guilds
+Sometimes there are cross-cutting concerns that can't be driven by a single team. To manage specific architecture decisions/refinements in these areas, Moda Tech will use the concept of Guilds. We will refine the role of Guilds over time, but as an initial entrypoint people can opt-in to Guilds using [Github teams](https://github.com/orgs/ModaOperandi/teams?query=guild); these then help in the [RFC process](https://github.com/ModaOperandi/rfc).
 
+
+## Sources
 We are indebited to deep thinking done by strong engineers that came before us, specifically Gilt's [standards](https://github.com/gilt/standards)/[Arch Board](https://github.com/gilt/arch-board) and Flow's [standards](https://github.com/flowcommerce/standards).
