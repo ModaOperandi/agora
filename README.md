@@ -42,6 +42,8 @@ Though anyone in Moda Tech can contribute to the conversation here in the Agora,
 ## Guilds
 Sometimes there are cross-cutting concerns that can't be driven by a single team. To manage specific architecture decisions/refinements in these areas, Moda Tech will use the concept of Guilds. We will refine the role of Guilds over time, but as an initial entrypoint people can opt-in to Guilds using [Github teams](https://github.com/orgs/ModaOperandi/teams?query=guild); these then help in the [RFC process](https://github.com/ModaOperandi/rfc).
 
+Feel free to add new Guilds - but when adding the Github team, be sure to nest it under the [All Guilds](https://github.com/orgs/ModaOperandi/teams/all-guilds) parent team.
+
 
 ## Sources
 We are indebited to deep thinking done by strong engineers that came before us, specifically Gilt's [standards](https://github.com/gilt/standards)/[Arch Board](https://github.com/gilt/arch-board) and Flow's [standards](https://github.com/flowcommerce/standards).
