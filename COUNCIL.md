@@ -53,6 +53,7 @@ TODO: Consider/discuss term limits or some other means of keeping the Council at
 
 ## Council Meetings
 
+* The Council will meet once weekly, to help gain momentum. The Council will revisit this in the future to decide if this cadence continues making sense.
 * Councilmembers should do their best to attend Council meetings.
 * The main goal of the meetings is to share information as well as discuss and decide on architectural topics that affect the entire tech organization.
 * The meeting agenda will be distributed in advance of every meeting.
