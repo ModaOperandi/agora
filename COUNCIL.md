@@ -22,6 +22,17 @@ The council's objective is to facilitate a broader conversation with the enginee
 * Additional Councilmembers are free to voluntarily give up their seat on the Council.
 
 
+## Term limits
+
+TODO: Consider/discuss term limits or some other means of keeping the Council at a reasonable size. A group like this has the tendency to grow over time (natural additions via promotion + nominations; only subtraction via attrition from Moda) but we should be conscious of the group growing too large. Problems with being too large:
+
+* Meetings become very "expensive" (i.e. time from many senior people)
+* More difficult to drive to consensus
+* More difficult to schedule meetings
+* Easier to be disengaged as an individual
+* Too high of a percentage of Moda Tech covered, such that the group begins to feel exclusive of the minority instead of the top of a pyramid
+
+
 ## High-level responsibility
 
 * The Council will provide comments into company wide review process on duties related to system architecture and technological choices.
