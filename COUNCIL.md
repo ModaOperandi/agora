@@ -56,9 +56,11 @@ TODO: Consider/discuss term limits or some other means of keeping the Council at
 * The Council will meet once weekly, to help gain momentum. The Council will revisit this in the future to decide if this cadence continues making sense.
 * Councilmembers should do their best to attend Council meetings.
 * The main goal of the meetings is to share information as well as discuss and decide on architectural topics that affect the entire tech organization.
-* The meeting agenda will be distributed in advance of every meeting.
 * All members can raise topics to be discussed at Council meetings.
+* The meeting agenda will be distributed in advance of every meeting.
+* Any non-Councilmember who has a PR up for discussion in the agenda should attend the meeting.
 * To encourage visibility and participation, there will be a rotating standing invite for non-Councilmembers. This should be automatically maintained as part of onboarding, and should appear on calendars to encourage attendance.
+* In addition, each meeting will allow for up to 5 additional people to sign up to attend, based on the agenda items.
 * Each meeting has a scribe to keep track of the discussion in a Github comment on a PR.
 * Meeting minutes are shared (as links to Github comments) with all of Moda Tech after each meeting.
 
