@@ -57,6 +57,7 @@ TODO: Consider/discuss term limits or some other means of keeping the Council at
 * The main goal of the meetings is to share information as well as discuss and decide on architectural topics that affect the entire tech organization.
 * The meeting agenda will be distributed in advance of every meeting.
 * All members can raise topics to be discussed at Council meetings.
+* To encourage visibility and participation, there will be a rotating standing invite for non-Councilmembers. This should be automatically maintained as part of onboarding, and should appear on calendars to encourage attendance.
 * Each meeting has a scribe to keep track of the discussion in a Github comment on a PR.
 * Meeting minutes are shared (as links to Github comments) with all of Moda Tech after each meeting.
 
