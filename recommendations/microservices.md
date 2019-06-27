@@ -115,6 +115,15 @@ Here are some main Kotlin features:
       // the `else` clause is not required because we've covered all the cases
    }
    ```
+- coroutines
+   ```kotlin
+   suspend fun workload(n: Int): Int { // may be executed as suspendable lightweight thread - coroutine
+      delay(1000)
+      return n
+   }```
+- all same libraries and frameworks from Java are available with full interop
+- there's a lot of work going on at kotlinx libraries space - these libraries are truly multiplatform
+- libraries built specifically for Kotlin: Ktor, Koin and some nice DSL addons for existing libraries usable from Kotlin
 
 ### Scala
 
