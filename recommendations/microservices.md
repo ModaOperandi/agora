@@ -59,8 +59,6 @@ Here are some main Kotlin features:
    if (b != null) {
       val len = b.length // this is fine b is smartcasted to String type 
    }
-
-   a = "some other string" // won't compile a is immutable
    ```
 - type inference
    ```kotlin
