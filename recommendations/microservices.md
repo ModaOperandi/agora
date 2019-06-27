@@ -41,6 +41,81 @@ Here are main arguments/advantages of Kotlin over Scala
 
 6. Kotlin is newest in JVM space - it has opportunity for developers to make an impact by contributing more in open source.
 
+Here are some main Kotlin features:
+- immutability control
+   ```kotlin
+   val a = "some string"
+
+   a = "some other string" // won't compile a is immutable
+   ```
+- true null safety
+   ```kotlin
+   val a: String = null // won't compile String is not nullable type
+
+   val b: String? = null // this is fine String? is nullable
+
+   val len = b.length // this won't compile b needs to be checked for null value first
+
+   if (b != null) {
+      val len = b.length // this is fine b is smartcasted to String type 
+   }
+
+   a = "some other string" // won't compile a is immutable
+   ```
+- type inference
+   ```kotlin
+   val a = "some string" // a type is inferred as String
+   val b: String = "some other string" // explicit type info is fine too
+   ```
+- data types
+   ```kotlin
+   data class Point(val x: Int, val y: Int) // class with two properties and equality
+   ```
+- extension functions
+   ```kotlin
+   fun MutableList<Int>.swap(index1: Int, index2: Int) { // this is extension function to MutableList
+      val tmp = this[index1] // 'this' corresponds to the list
+      this[index1] = this[index2]
+      this[index2] = tmp
+   }
+
+   val l = mutableListOf(1, 2, 3)
+   l.swap(0, 2) // 'this' inside 'swap()' will hold the value of 'l'
+   ```
+- function types
+   ```kotlin
+   fun <T, R> Collection<T>.fold(
+      initial: R, 
+      combine: (acc: R, nextElement: T) -> R // function type here
+   ): R {
+      var accumulator: R = initial
+      for (element: T in this) {
+         accumulator = combine(accumulator, element)
+      }
+      return accumulator
+   }
+
+   val items = listOf(1, 2, 3, 4, 5)
+
+   val joinedToString = items.fold("Elements:", { acc, i -> acc + " " + i }) // lambda function passed here
+
+   val product = items.fold(1, Int::times) // function reference passed here
+   ```
+- sealed classes with (very) limited pattern matching
+   ```kotlin
+   sealed class Expr
+   data class Const(val number: Double) : Expr()
+   data class Sum(val e1: Expr, val e2: Expr) : Expr()
+   object NotANumber : Expr()
+
+   fun eval(expr: Expr): Double = when(expr) {
+      is Const -> expr.number
+      is Sum -> eval(expr.e1) + eval(expr.e2)
+      NotANumber -> Double.NaN
+      // the `else` clause is not required because we've covered all the cases
+   }
+   ```
+
 ### Scala
 
 - Language features (mostly used)
