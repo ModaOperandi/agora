@@ -5,13 +5,11 @@ Moda is opportunistically moving functionality out of its Rails monolith (Mojo) 
 
 # Languages & Frameworks
 
-## Trial
-
-### Kotlin vs Scala
-
-This section provides Kotlin vs Scala selection information in brief. Here's a good lecture with comparison overview: [Kotlin vs Scala](https://www.youtube.com/watch?v=MsMejigb1Zk) 
+## Assess
 
 ### Kotlin
+
+Here's a good lecture with comparison overview: [Kotlin vs Scala](https://www.youtube.com/watch?v=MsMejigb1Zk)
 
 Here are some lectures from Google I/O to get some idea about Kotlin:
 
@@ -122,6 +120,9 @@ Here are some main Kotlin features:
 - all same libraries and frameworks from Java are available with full interop
 - there's a lot of work going on at kotlinx libraries space - these libraries are truly multiplatform
 - libraries built specifically for Kotlin: Ktor, Koin and some nice DSL addons for existing libraries usable from Kotlin
+
+
+## Trial
 
 ### Scala
 
