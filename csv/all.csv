@@ -38,5 +38,264 @@ name,ring,quadrant,isNew,description
 <li>The type system has been a great benefit to us when writing code. We avoid annoying runtime bugs that are caught by the compiler early on from simple mistakes. I feel assured knowing that the code being compiled will run and not break (assuming our components are rendered correctly!)</li>
 <li>A large company in Facebook backs it and uses it currently in production.</li>
 </ul>"
-"Placeholder","Assess","Tools",FALSE,"<p>TBD</p>"
+"Scala","Trial","Languages & Frameworks",FALSE,"<ul>
+<li><p>Language features (mostly used)</p>
+
+<ul>
+<li>immutability by default</li>
+<li><p>null safety (kind of) 
+```scala
+ case class Point(x : Int, y : Int)
+ val a : Point = null //danger
+ a.x //OOPS, NPE</p>
+
+<p>val b : Option[Point] = Option(javaFunctionReturningPoint())</p>
+
+<p>b.map{ point =&gt; 
+    //safely use point
+ }</p>
+
+<p>```</p></li>
+<li>type inference
+<code>scala
+val a = ""hello world""
+val b : String = ""hello world""
+</code></li>
+<li>data types
+<code>scala
+case class Point(x : int, y : Int)
+</code></li>
+<li><p>Pattern matching 
+```scala
+val point = Point(34, 65)
+point match {
+case Point(x, y) =&gt; //x = 34 y = 65
+}
+def calcSomePoint() : Point
+val Point(x, y) = calcSomePoint()
+//values x and y is available here</p>
+
+<p>val ages = List(3, 6, 43, 1, 0)
+ages match {
+case head :: tail =&gt; //head : Int 
+//tail : List[Int]
+case Nil =&gt; //list is empty
+}
+```</p></li>
+<li>for-comprehansion 
+```scala
+def callService1 : Future[Result]
+def callService2 : Futire[Result]</li>
+</ul>
+
+<p>val results : Futire[(Result, Result)] = (for{
+res1 &lt;- callService1
+res2 &lt;- callService2
+} yield (res1, res2))
+```</p>
+
+<ul>
+<li>higher order functions 
+```scala 
+def double(x) = x * 2</li>
+</ul>
+
+<p>val numbers : List(1, 2, 3)
+numbers.map(double)
+//List(2,4,6)
+```</p>
+
+<ul>
+<li>sealed traits
+```scala
+sealed trait Direction
+case object North extends Direction
+case object South extends Direction
+case object West extends Direction
+case object East extends Direction
+case class Unknown(name : String)</li>
+</ul>
+
+<p>val dir : Direction = calcDirection()
+//following is exhaustive pattern matching
+dir match {
+  case North =&gt;
+  case South =&gt;
+  case West =&gt;
+  case East =&gt;
+  case Unknown(unknownDirection) =&gt; println(s""you shell not pass $unknownDirection"")
+}
+```</p>
+
+<ul>
+<li><p>Algepraic Data Types (ADT)</p>
+
+<ul>
+<li>sealed traits (sums)</li>
+<li>case clusses (products)</li>
+</ul></li>
+<li><p>inplicits (very low level language feature, many usefull things may be implemented using it)</p>
+
+<ul>
+<li>type classes
+```scala
+//type class
+trait Addable[T] {
+def add(left: T, right: T): T
+}</li>
+</ul>
+
+<p>def add1<a href=""left: A, right: A"">A: Addable</a>: A = {
+ implicitly[Addable[A]].add(left, right)
+}
+//add2 is identical to add1, just more explicit syntax
+def add2<a href=""left: A, right: A"">A</a>(implicit Addable: Addable[A]): A = {
+ Addable.add(left, right)
+}</p>
+
+<p>implicit object IntAdder extends Addable[Int] {
+ override def add(left: Int, right: Int): Int = left + right
+}</p>
+
+<p>add2(1, 3) //4</p>
+
+<p>implicit object StringAdder extends Addable[String] {
+ override def add(left: String, right: String): String = s""$left $right""
+}
+add1(""one"", ""two"") //""one two""</p>
+
+<p>add2(Point(1,3), Point(3,5)) // compilation Error, no typeclass implementation for Addable[Point]
+```</p></li>
+<li><p>Standard library </p>
+
+<ul>
+<li>powerfull collections framework </li>
+<li>Scala futures</li>
+</ul></li>
+<li><p>Scala and Pure FP</p>
+
+<ul>
+<li>Cats</li>
+<li>ZIO</li>
+<li>take a look into effects management, referential transparency and function purity and totality</li>
+</ul></li>
+<li><p>Frameworks</p></li>
+<li>Play Framework, Akka HTTP, Http4S (RESTful HTTP)</li>
+<li>Anorm, Slick, Doobie (JDBC wrappers, ORM)</li>
+<li>Akka (Actors framework, inspired by Erlang, very low level for distributed, concurrent applications)</li>
+<li>Akka Streams, FS2, Monix (reactive streams, pull, push or hibrid design)</li>
+<li>Circe (Json encoder/decoder based on shapless)</li>
+<li>Scalacheck (very poerfull concept of property testing)</li>
+<li>Scalatest</li>
+<li>also all Java libraries are available including Spring, Java SDK etc, but not recommended to use, because of mutable nature</li>
+</ul></li>
+</ul>"
+"Kotlin","Assess","Languages & Frameworks",FALSE,"<p>Here's a good lecture with comparison overview: <a href=""https://www.youtube.com/watch?v=MsMejigb1Zk"">Kotlin vs Scala</a></p>
+
+<p>Here are some lectures from Google I/O to get some idea about Kotlin:</p>
+
+<p><a href=""https://www.youtube.com/watch?v=X1RVYt2QKQE"">Introduction to Kotlin (Google I/O '17)</a></p>
+
+<p><a href=""https://www.youtube.com/watch?v=6P20npkvcb8"">How to Kotlin - from the Lead Kotlin Language Designer (Google I/O '18)</a> </p>
+
+<p>Here are main arguments/advantages of Kotlin over Scala</p>
+
+<ol>
+<li><p>Kotlin design is simpler then Scala design - allowing flatter learning curve.</p></li>
+<li><p>Kotlin has high level of interop with Java:</p>
+
+<ul>
+<li><p>Existing battle-checked Java frameworks can be leveraged directly from Kotlin.</p></li>
+<li><p>Code written in Kotlin can be used directly from Java. Less risky to introduce Kotlin with an option to go back to Java at any moment.</p></li>
+<li><p>Existing codebase in Java could be converted to Kotlin at almost zero cost (even with one click in IntelliJ IDEA).</p></li>
+<li><p>Easy to adopt at other areas, like QA automation.</p></li>
+</ul></li>
+<li><p>Kotlin is one of two (golang as well) industrial languages that have coroutines.</p></li>
+<li><p>Kotlin is multiplatform (implemented by vendor) - could be used for wide variety of tasks even where heavy JVM is not applicable.</p></li>
+<li><p>Kotlin outside of Android is pretty fresh - should help to get the attention of talented engineers and define Moda Operandi as a technology driven company.</p></li>
+<li><p>Kotlin is newest in JVM space - it has opportunity for developers to make an impact by contributing more in open source.</p></li>
+</ol>
+
+<p>Here are some main Kotlin features:
+- immutability control
+   ```kotlin
+   val a = ""some string""</p>
+
+<p>a = ""some other string"" // won't compile a is immutable
+   <code>
+- true null safety
+</code>kotlin
+   val a: String = null // won't compile String is not nullable type</p>
+
+<p>val b: String? = null // this is fine String? is nullable</p>
+
+<p>val len = b.length // this won't compile b needs to be checked for null value first</p>
+
+<p>if (b != null) {
+      val len = b.length // this is fine b is smartcasted to String type 
+   }
+   <code>
+- type inference
+</code>kotlin
+   val a = ""some string"" // a type is inferred as String
+   val b: String = ""some other string"" // explicit type info is fine too
+   <code>
+- data types
+</code>kotlin
+   data class Point(val x: Int, val y: Int) // class with two properties and equality
+   <code>
+- extension functions
+</code>kotlin
+   fun MutableList<Int>.swap(index1: Int, index2: Int) { // this is extension function to MutableList
+      val tmp = this[index1] // 'this' corresponds to the list
+      this[index1] = this[index2]
+      this[index2] = tmp
+   }</p>
+
+<p>val l = mutableListOf(1, 2, 3)
+   l.swap(0, 2) // 'this' inside 'swap()' will hold the value of 'l'
+   <code>
+- function types
+</code>kotlin
+   fun <T, R> Collection<T>.fold(
+      initial: R, 
+      combine: (acc: R, nextElement: T) -> R // function type here
+   ): R {
+      var accumulator: R = initial
+      for (element: T in this) {
+         accumulator = combine(accumulator, element)
+      }
+      return accumulator
+   }</p>
+
+<p>val items = listOf(1, 2, 3, 4, 5)</p>
+
+<p>val joinedToString = items.fold(""Elements:"", { acc, i -> acc + "" "" + i }) // lambda function passed here</p>
+
+<p>val product = items.fold(1, Int::times) // function reference passed here
+   <code>
+- sealed classes with (very) limited pattern matching
+</code>kotlin
+   sealed class Expr
+   data class Const(val number: Double) : Expr()
+   data class Sum(val e1: Expr, val e2: Expr) : Expr()
+   object NotANumber : Expr()</p>
+
+<p>fun eval(expr: Expr): Double = when(expr) {
+      is Const -> expr.number
+      is Sum -> eval(expr.e1) + eval(expr.e2)
+      NotANumber -> Double.NaN
+      // the <code>else</code> clause is not required because we've covered all the cases
+   }
+   <code>
+- coroutines
+</code>kotlin
+   suspend fun workload(n: Int): Int { // may be executed as suspendable lightweight thread - coroutine
+      delay(1000)
+      return n
+   }```
+- all same libraries and frameworks from Java are available with full interop
+- there's a lot of work going on at kotlinx libraries space - these libraries are truly multiplatform
+- libraries built specifically for Kotlin: Ktor, Koin and some nice DSL addons for existing libraries usable from Kotlin</p>"
+"Placeholder","Hold","Tools",FALSE,"<p>TBD</p>"
 "Placeholder","Hold","Techniques",FALSE,"<p>TBD</p>"
