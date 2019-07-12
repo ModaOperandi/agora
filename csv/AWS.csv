@@ -1,11 +1,43 @@
 name,ring,quadrant,isNew,description
 "Placeholder","Adopt","Platforms",FALSE,"<p>TBD</p>"
-"Terraform","Trial","Tools",FALSE,"<p>Moda should be capturing infrastructure assets in committed code (<a href="https://www.hashicorp.com/resources/what-is-infrastructure-as-code">why it is important</a>). Current thinking is that it is superior to <a href="#cloudformation">CloudFormation</a> for the following reasons:</p>
+"Terraform","Trial","Tools",FALSE,"<p>Moda should be capturing infrastructure assets in committed code (<a href=""https://www.hashicorp.com/resources/what-is-infrastructure-as-code"">why it is important</a>). Current thinking is that it is superior to <a href=""#cloudformation"">CloudFormation</a> for the following reasons:</p>
 
 <ol>
 <li>Terraform is multi-service. This does not mean that the same Terraform resource can be deployed indiscriminately across different clouds. But it does mean that resources across multiple cloud providers (or any provider, really) can be captured in Terraform - and thus be captured in the same workflow, pipelines, etc.</li>
 <li>Terraform uses the provider's APIs. As a result, Terraform - which can model anything available via the API - will always be ahead of CloudFormation in supported resources.</li>
 </ol>"
-"Placeholder","Assess","Languages & Frameworks",FALSE,"<p>TBD</p>"
-"CloudFormation","Hold","Tools",FALSE,"<p>Moda should be capturing infrastructure assets in committed code (<a href="https://www.hashicorp.com/resources/what-is-infrastructure-as-code">why it is important</a>). CloudFormation is the AWS-native way to do IaC. Please see commentary on <a href="#terraform">Terraform</a> for reasons why CloudFormation is not recommended.</p>"
+"Pulumi","Assess","Tools",FALSE,"<p>There is a recent trend to attempt to pull infrastructure-as-code (IaC) out of <a href=""https://www.terraform.io/docs/configuration/syntax.html"">vendor</a>-<a href=""https://docs.ansible.com/ansible/latest/user_guide/playbooks_intro.html#playbook-language-example"">specific</a> <a href=""https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html"">DSLs</a> and into strongly-typed code libraries; <a href=""https://www.pulumi.com"">Pulumi</a> is perhaps the most advanced option within this space. The general idea is to reduce friction by bringing IaC to where the developers live, i.e. in the same language and with the same constructs (dependency management, importing libraries, etc) within they are accustomed to working.</p>
+
+<p>A quick (proof-of-concept-less) look at Pulumi (and generally any other similar tool) raises the following concerns:
+1. This is another layer of abstraction that:
+  * obfusicates the inner workings of the base tool (CloudFormation, Terraform, etc)
+  * may be implemented to different degrees based on language and cloud provider/service
+  * will always lag behind the base tool
+  * can have bugs
+2. Unclear that there is major benefit to performing IaC in a developer's chosen language:
+  * may not be implemented in your language of choice
+  * are the DSLs <em>that</em> inscrutable?
+  * there likely will always need to be another pipeline/step for IaC anyway, with a (Pulumi)-specific environment
+3. Is an imported library <em>that</em> different from a module?
+4. How much traction will this gain? A strong community is essential for the long-term viability of any technology that relies on third-party-specific integration work.</p>
+
+<p>That said, this is an interesting space with some industry attention devoted to it and it might make sense to do some work to prove out the above (or contradict it). If we do, here are a few basic requirements:</p>
+
+<ol>
+<li>Should be extensible. This tool will never have full coverage into all infrastructure partners, and we should be able to extend it to work with our partners if we decide it is worth the investment.</li>
+<li>Underlying configuration that is produced (CloudFormation, Terraform, etc) should be commited to a repository.</li>
+<li>Keep cost in mind.</li>
+</ol>
+
+<p>In the meantime, we should continue working with established tools and follow best-practices.</p>"
+"CloudFormation","Hold","Tools",FALSE,"<p>Moda should be capturing infrastructure assets in committed code (<a href=""https://www.hashicorp.com/resources/what-is-infrastructure-as-code"">why it is important</a>). CloudFormation is the AWS-native way to do IaC. Please see commentary on <a href=""#terraform"">Terraform</a> for reasons why CloudFormation is not recommended.</p>
+
+<h4>Note regarding AWS CDK (Cloud Development Kit)</h4>
+
+<p>Per the <a href=""https://aws.amazon.com/cdk/faqs"">CDK FAQ</a>:
+<code>
+Since AWS CDK leverages CloudFormation, AWS CDK applications are subject to the same limits imposed by the CloudFormation service.
+</code>
+As such, the CDK should be considered on <code>Hold</code> because CloudFormation itself is.</p>"
+"Placeholder","Hold","Languages & Frameworks",FALSE,"<p>TBD</p>"
 "Placeholder","Hold","Techniques",FALSE,"<p>TBD</p>"
