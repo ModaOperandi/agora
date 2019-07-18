@@ -5,6 +5,14 @@ name,ring,quadrant,isNew,description
 <ol>
 <li>Terraform is multi-service. This does not mean that the same Terraform resource can be deployed indiscriminately across different clouds. But it does mean that resources across multiple cloud providers (or any provider, really) can be captured in Terraform - and thus be captured in the same workflow, pipelines, etc.</li>
 <li>Terraform uses the provider's APIs. As a result, Terraform - which can model anything available via the API - will always be ahead of CloudFormation in supported resources.</li>
+<li>Terraform is infrastructure as code where CloudFormation is large yaml or json definitions.</li>
+<li>Terraform is much easier to read and write than CloudFormation.</li>
+<li>We can write Terraform modules to increase infrastructure reproducibility, consistency, and iteration.</li>
+<li>Terraform is easier to learn than CloudFormation.</li>
+<li>Hashicorp is actively developing terraform.</li>
+<li>Active open source community. Lots of contributors, docs, modules, examples, videos, talks, POCs, etc.</li>
+<li>Engineers are already using and learning Terraform at Moda.</li>
+<li>Arguably a better fit than CloudFormation for code generation and iteration.</li>
 </ol>"
 "Pulumi","Assess","Tools",FALSE,"<p>There is a recent trend to attempt to pull infrastructure-as-code (IaC) out of <a href=""https://www.terraform.io/docs/configuration/syntax.html"">vendor</a>-<a href=""https://docs.ansible.com/ansible/latest/user_guide/playbooks_intro.html#playbook-language-example"">specific</a> <a href=""https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html"">DSLs</a> and into strongly-typed code libraries; <a href=""https://www.pulumi.com"">Pulumi</a> is perhaps the most advanced option within this space. The general idea is to reduce friction by bringing IaC to where the developers live, i.e. in the same language and with the same constructs (dependency management, importing libraries, etc) within they are accustomed to working.</p>
 

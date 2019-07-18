@@ -5,6 +5,14 @@ name,ring,quadrant,isNew,description
 <ol>
 <li>Terraform is multi-service. This does not mean that the same Terraform resource can be deployed indiscriminately across different clouds. But it does mean that resources across multiple cloud providers (or any provider, really) can be captured in Terraform - and thus be captured in the same workflow, pipelines, etc.</li>
 <li>Terraform uses the provider's APIs. As a result, Terraform - which can model anything available via the API - will always be ahead of CloudFormation in supported resources.</li>
+<li>Terraform is infrastructure as code where CloudFormation is large yaml or json definitions.</li>
+<li>Terraform is much easier to read and write than CloudFormation.</li>
+<li>We can write Terraform modules to increase infrastructure reproducibility, consistency, and iteration.</li>
+<li>Terraform is easier to learn than CloudFormation.</li>
+<li>Hashicorp is actively developing terraform.</li>
+<li>Active open source community. Lots of contributors, docs, modules, examples, videos, talks, POCs, etc.</li>
+<li>Engineers are already using and learning Terraform at Moda.</li>
+<li>Arguably a better fit than CloudFormation for code generation and iteration.</li>
 </ol>"
 "ReasonML","Trial","Languages & Frameworks",FALSE,"<p><a href=""https://reasonml.github.io/"">ReasonML</a> is an alternative syntax to <a href=""http://www.ocaml.org/"">OCaml</a> - a language that features functional, imperative, and object-oriented programming with a compiler that employs static typing and type inference. It was founded by the creator of ReactJS, <a href=""https://github.com/jordwalke"">Jordan Walke</a>, with the backing of Facebook, Bloomberg, and other individual contributors within the open source community.</p>
 
