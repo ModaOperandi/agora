@@ -2,6 +2,14 @@
 
 Moda needs a way to privately store versioned common libraries in main tech stacks.
 
+In this document following terms are used:
+
+*package* - some piece of software: library or application in form of container
+
+*package type* - Maven, SBT, Docker, Python Wheel, etc.
+
+*packages repository* - system that stores versioned packages
+
 # Packages Repositroies
 
 ## Github Package Registry
@@ -37,3 +45,19 @@ Cons:
 1. Authentication with Github SSO is not possible, though Google SSO integration works.
 
 2. Not free. First 3 months: $98 per month for. Next 3 months pessimistic estimate: $235 per month.
+
+## Multiple Repositories
+
+We could use specific repositories for each specific package type. Here's analysis of this.
+
+Pros:
+
+1. Some of such repository are open source - no license costs.
+
+Cons:
+
+1. Self-hosted repositories are more expensive in setup and maintenance then licensing cost could be.
+
+2. Licenses costs for cloud-hosted options (if there are any available) are multiplied by number of supported packages types.
+
+3. Each repository requires it's own configuration on developers machines and in CI/CD system.
