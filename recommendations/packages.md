@@ -22,13 +22,15 @@ Cons:
 
 3. No support for Go modules (currently we use Go for tooling).
 
+4. Very new - might cause some unique issue.
+
 ## Artifactory (Cloud-based)
 
 Pros:
 
 1. Any possible type of package is supported.
 
-2. Authentication is configured the same way as for Github.
+2. Defacto industry standard - will not bring unexpected issues.
 
 Cons:
 
