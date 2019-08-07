@@ -5,41 +5,89 @@ Frontend work is a gloriously diverse ecosystem of technologies - many of them o
 
 # Languages & Frameworks
 
-## Trial
+## Decided
 
-### ReasonML
+### React
 
-[ReasonML](https://reasonml.github.io/) is an alternative syntax to [OCaml](http://www.ocaml.org/) - a language that features functional, imperative, and object-oriented programming with a compiler that employs static typing and type inference. It was founded by the creator of ReactJS, [Jordan Walke](https://github.com/jordwalke), with the backing of Facebook, Bloomberg, and other individual contributors within the open source community.
+[React](https://reactjs.org/) is Facebook's UI library for creating dynamic, quickly modified UI trees based on
+Javascript. It is easily the most popular Frontend UI/component library currently in use, with a rich toolset and
+powerful set of suggested patterns based in functional composition and immutability. Given it's simplicity and purity
+with regards to staying true to functional Javascript, it is also easily hackable, resulting in a large community
+of packages for creating "true to form" libraries that complement React's core feature set well.
 
 #### Why?
 
-Reason leverages the power of OCaml's compiler, while providing a familiar syntax, in an effort to create a clean, fast, and effective way to write JS. It provides the ability to create safe and robust frontend applications. 
-
-The type system allows us to avoid most runtime errors that waste large portions of time trying to debug, as well as the ability to refactor existing code while keeping the entire application in sync, from container to view.
-
-It's usually difficult to modify someone else's code, or to try and reason (hah!) about a system that you didn't write. This is where the static typing comes in handy the most. In our use case, we just turn data into views, so when we're modifying each other's written code, the type system will guide us; Therefore allowing us to do our jobs quicker, without sacrificing quality.
-
-#### JS Interop (how can we interact with existing JS?)
-
-[BuckleScript](https://bucklescript.github.io/docs/en/what-why) is a fork of OCaml that allows ReasonML or OCaml code to be compiled into JS. It was originally produced by [Hongbo Zhang](https://github.com/bobzhang) at Bloomberg, and has grown to be its own library and repository, so that others could contribute. It also provides a way to bind to existing JS and incorporate it into a Reason project.
-
-We end up bundling our compiled Reason code, along with all the dependencies we use, with webpack into a compressed and uglified JS file. After that we can import our components into any other JS application, just like any other library.
-
-#### React?
-
-There is an actively supported library, [ReasonReact](https://reasonml.github.io/reason-react/en/), that gives users the ability to write React components (and soon [hooks](https://github.com/reasonml/reason-react/pull/351)) in Reason. This library serves as the backbone of Moda's [display library](https://github.com/modaoperandi/not-elixir). It provides a way to render components written in plain JS, as well as a way to export components written in Reason for use in the JS world. The hooks PR linked above also includes support for the new context API in React, which allows global data storage and retrieval.
+A single UI library will help Moda reuse a larger amount of UI styling and functionality, as well as allow
+a building up of expertise and knowledge within a more unified skill set across the engineering team.
 
 #### Drawbacks
 
-- [bs-platform](https://github.com/BuckleScript/bucklescript/issues/1187), the BuckleScript runtime, is bundled by webpack with our code. They are [working on a solution](https://bucklescript.github.io/blog/2018/12/05/release-4-0-8) to separate the runtime and the standard library, so that generated JS can be shipped as a library without the need of a bundler.
-- The learning curve is steep. People coming with experience in [TypeScript](https://www.typescriptlang.org) or another strongly typed language will have a way easier time adjusting, otherwise it can be quite challenging.
-- Smaller audience for problems on Stack Overflow or other forums.
-- Compared to TypeScript, adoption is less, so there are fewer bindings to existing JS libraries.
+React's primary drawback is a multitude of choices, in libraries and code patterns, means that two groups
+both developing Frontend code on React can still end up with drastically different looking codebases.
+The only way to honestly guard against this is developer awareness, and similar linting rules and dependency sets.
 
 #### Positives
 
-- Build times are extremely fast. I use BuckleScript to compile all the **\*.re** files into **\*.bs.js**, which is taken by Webpack and bundled up to be required in an index.html file that I load in my browser. Compiling the Reason to JS takes roughly 30 to 40 milliseconds on average. Writing code & checking the functionality or the design almost instantly is pretty nice.
-- Refactoring is very easy. Due to the static typing, changing how data enters a component or removing code from an existing component becomes very intuitive. The compiler will point out every instance of how that code was being used, and what it is trying to compile now.
-- [Pattern matching!](https://reasonml.github.io/docs/en/pattern-matching) It is a [very early proposal](https://github.com/tc39/proposal-pattern-matching) in JavaScript land, but we have it right now in Reason! In addition to being more readable, pattern matching allows for [exhaustive checks](http://hackage.haskell.org/package/exhaustive-1.1.6/docs/Control-Exhaustive.html) of all the ways data could be represented, and the compiler enforces it through the type system.
-- The type system has been a great benefit to us when writing code. We avoid annoying runtime bugs that are caught by the compiler early on from simple mistakes. I feel assured knowing that the code being compiled will run and not break (assuming our components are rendered correctly!)
-- A large company in Facebook backs it and uses it currently in production.
+React's philosophy of treating UI's as a dynamically generated tree of functionally composable elements
+of style, functionality, and output, represents a very strong foundation with which to build frontends
+applications. The availability of packages for streamlining separation of concerns is spectacular, and
+React itself makes no assumptions about the context in which it runs as well.
+
+## Trial
+
+### TypeScript
+
+[TypeScript](https://www.typescriptlang.org) is a superset of Javascript's built in feature set plus items still under
+consideration for being accepted into the JS core API. It is created by Microsoft as a compile-time-typed alternative
+to Javascript, with a large community of tooling and cross-mixing with existing JS libraries.
+
+#### Why?
+
+TypeScript provides a nearly full set of tooling for Object Oriented approaches as well as a powerful foundation for
+functional ones as well (supplemented by libraries such as Ramda). It has immense and growing support across the entire
+JS/Node-based development community and type definitions are easy to come by or create.
+
+Overall, the use of a strong type system will help us develop faster (with better compile-time tooling) and avoid
+type related errors. Further, TypeScript's type system and write-time tooling help enforce coding standards to a
+higher level than most JS-centric tools, with more aggressive and comprehensive linting and stricter requirements.
+
+#### JS Interop (how can we interact with existing JS?)
+
+Working with existing JS in TypeScript is extremely simple. The only real requirement is to create or download a type
+definitions file for the existing library, and editor and compilation tools largely handle the rest of the work of
+integrating intellisense or `tsc`.
+
+#### React?
+
+TypeScript is steadily becoming the default for many significant libraries in the React ecosystem, such as Jest which
+is migrating their entire codebase to TypeScript, and React itself which puts TypeScript as on par with, if not slightly
+more preferred than Flow, Facebook's own typed JS library (almost all React docs now show TS examples as equal to the Flow
+example, sometimes with preference).
+
+#### Drawbacks
+
+- There is a learning curve still.
+TypeScript is not Javascript and especially with stricter linting settings, it can take some getting used to.
+- It is not a perfect model of Object Oriented Programming tools.
+For example, abstract types typically exist only at compile time, causing difficulty in telling TypeScript you
+want to use a class that implements an abstract class during runtime. Further, `static` doesn't really exist
+in the same way as it normally does in truly/fully compiled languages like Java. This can be a bit misleading.
+- It requires a bit more of a build process.
+Source maps become more useful, and compilation of TypeScript to JS is obviously required.
+- More libraries are required.
+Type definition libraries are often not an option but a requirement.
+
+#### Positives
+
+- Typescript has immense support, fantastic tutorials, and valid JS is, if not lint-passing, valid TS.
+As such, the learning curve should be quite minimal. This is especially the case as OOP is a largely abandoned
+concept in Frontend environments these days, meaning proper implementation of OOP principles will likely
+not be necessary (generics can be very helpful, however).
+- Typescript types are powerful.
+TypeScript has a rich type system, especially with the experimental `decorators` option enabled.
+- Combined with GraphQL's runtime type checking, can guarantee 100% type-safety (when/where used) of code from GraphQL
+proxies forward to the smallest component.
+- Automatic documentation generation via comments above types, and the community's available tooling.
+TypeScript has incredible support across virtually every Frontend environment at this point, and the tooling is often
+equivalent to or a step above its JS counterpart; in many cases it *is* the JS option, possibly with extra
+features and abilities added on.
