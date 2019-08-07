@@ -1,11 +1,91 @@
 name,ring,quadrant,isNew,description
-"Placeholder","Adopt","Platforms",FALSE,"<p>TBD</p>"
+"Artifactory","Adopt","Tools",FALSE,"<p>Defacto industry standard for providing multiple different package repositories (npm, Maven, Docker, etc).</p>
+
+<p><a href=""https://github.com/ModaOperandi/agora/blob/master/recommendations/details/packages.md"">Details</a></p>"
+"React","Adopt","Languages & Frameworks",FALSE,"<p><a href=""https://reactjs.org/"">React</a> is Facebook's UI library for creating dynamic, quickly modified UI trees based on
+Javascript. It is easily the most popular Frontend UI/component library currently in use, with a rich toolset and
+powerful set of suggested patterns based in functional composition and immutability. Given it's simplicity and purity
+with regards to staying true to functional Javascript, it is also easily hackable, resulting in a large community
+of packages for creating ""true to form"" libraries that complement React's core feature set well.</p>
+
+<h4>Why?</h4>
+
+<p>A single UI library will help Moda reuse a larger amount of UI styling and functionality, as well as allow
+a building up of expertise and knowledge within a more unified skill set across the engineering team.</p>
+
+<h4>Drawbacks</h4>
+
+<p>React's primary drawback is a multitude of choices, in libraries and code patterns, means that two groups
+both developing Frontend code on React can still end up with drastically different looking codebases.
+The only way to honestly guard against this is developer awareness, and similar linting rules and dependency sets.</p>
+
+<h4>Positives</h4>
+
+<p>React's philosophy of treating UI's as a dynamically generated tree of functionally composable elements
+of style, functionality, and output, represents a very strong foundation with which to build frontends
+applications. The availability of packages for streamlining separation of concerns is spectacular, and
+React itself makes no assumptions about the context in which it runs as well.</p>"
 "Terraform","Trial","Tools",FALSE,"<p>Terraform is the current best-in-class <a href=""https://www.hashicorp.com/resources/what-is-infrastructure-as-code"">infrastructure-as-code</a>) provider, providing (among other things) a multi-service approach through the ""front door"" of provider APIs that is actively developed both via core HashiCorp support and the open source community.</p>
 
 <p><a href=""https://github.com/ModaOperandi/agora/blob/master/recommendations/details/terraform.md"">Details</a></p>"
-"ReasonML","Trial","Languages & Frameworks",FALSE,"<p><a href=""https://reasonml.github.io/"">ReasonML</a> is an alternative syntax to <a href=""http://www.ocaml.org/"">OCaml</a> - a language that features functional, imperative, and object-oriented programming with a compiler that employs static typing and type inference. It was founded by the creator of ReactJS, <a href=""https://github.com/jordwalke"">Jordan Walke</a>, with the backing of Facebook, Bloomberg, and other individual contributors within the open source community.</p>
+"TypeScript","Trial","Languages & Frameworks",FALSE,"<p><a href=""https://www.typescriptlang.org"">TypeScript</a> is a superset of Javascript's built in feature set plus items still under
+consideration for being accepted into the JS core API. It is created by Microsoft as a compile-time-typed alternative
+to Javascript, with a large community of tooling and cross-mixing with existing JS libraries.</p>
 
-<p><a href=""https://github.com/ModaOperandi/agora/blob/master/recommendations/details/reason.md"">Details</a></p>"
+<h4>Why?</h4>
+
+<p>TypeScript provides a nearly full set of tooling for Object Oriented approaches as well as a powerful foundation for
+functional ones as well (supplemented by libraries such as Ramda). It has immense and growing support across the entire
+JS/Node-based development community and type definitions are easy to come by or create.</p>
+
+<p>Overall, the use of a strong type system will help us develop faster (with better compile-time tooling) and avoid
+type related errors. Further, TypeScript's type system and write-time tooling help enforce coding standards to a
+higher level than most JS-centric tools, with more aggressive and comprehensive linting and stricter requirements.</p>
+
+<h4>JS Interop (how can we interact with existing JS?)</h4>
+
+<p>Working with existing JS in TypeScript is extremely simple. The only real requirement is to create or download a type
+definitions file for the existing library, and editor and compilation tools largely handle the rest of the work of
+integrating with intellisense or <code>tsc</code>.</p>
+
+<h4>React?</h4>
+
+<p>TypeScript is steadily becoming the default for many significant libraries in the React ecosystem, such as Jest which
+is migrating their entire codebase to TypeScript, and React itself which puts TypeScript as on par with, if not slightly
+more preferred than Flow, Facebook's own typed JS library (almost all React docs now show TS examples as equal to the Flow
+example, sometimes with preference).</p>
+
+<h4>Drawbacks</h4>
+
+<ul>
+<li>There is a learning curve still.
+TypeScript is not Javascript and especially with stricter linting settings, it can take some getting used to.</li>
+<li>It is not a perfect model of Object Oriented Programming tools.
+For example, abstract types typically exist only at compile time, causing difficulty in telling TypeScript you
+want to use a class that implements an abstract class during runtime. Further, <code>static</code> doesn't really exist
+in the same way as it normally does in truly/fully compiled languages like Java. This can be a bit misleading.</li>
+<li>It requires a bit more of a build process.
+Source maps become more useful, and compilation of TypeScript to JS is obviously required.</li>
+<li>More libraries are required.
+Type definition libraries are often not an option but a requirement.</li>
+</ul>
+
+<h4>Positives</h4>
+
+<ul>
+<li>Typescript has immense support, fantastic tutorials, and valid JS is, if not lint-passing, valid TS.
+As such, the learning curve should be quite minimal. This is especially the case as OOP is a largely abandoned
+concept in Frontend environments these days, meaning proper implementation of OOP principles will likely
+not be necessary (generics can be very helpful, however).</li>
+<li>Typescript types are powerful.
+TypeScript has a rich type system, especially with the experimental <code>decorators</code> option enabled.</li>
+<li>Combined with GraphQL's runtime type checking, can guarantee 100% type-safety (when/where used) of code from GraphQL
+proxies forward to the smallest component.</li>
+<li>Automatic documentation generation via comments above types, and the community's available tooling.
+TypeScript has incredible support across virtually every Frontend environment at this point, and the tooling is often
+equivalent to or a step above its JS counterpart; in many cases it <em>is</em> the JS option, possibly with extra
+features and abilities added on.</li>
+</ul>"
 "Scala","Trial","Languages & Frameworks",FALSE,"<p>Scala is a more-mature modern language that gives Moda Tech an approachable entry to functional programming. It enjoys widespread adoption and many library options for HTTP frameworks, testing, actors, etc.</p>
 
 <p><a href=""https://github.com/ModaOperandi/agora/blob/master/recommendations/details/scala.md"">Details</a></p>"
@@ -20,4 +100,5 @@ name,ring,quadrant,isNew,description
 "CloudFormation","Hold","Tools",FALSE,"<p>Being only AWS-specific and generally lagging behind new services and API improvements in AWS itself, there are other better options for infrastructure-as-code.</p>
 
 <p><a href=""https://github.com/ModaOperandi/agora/blob/master/recommendations/details/cloudformation.md"">Details</a></p>"
+"Placeholder","Hold","Platforms",FALSE,"<p>TBD</p>"
 "Placeholder","Hold","Techniques",FALSE,"<p>TBD</p>"

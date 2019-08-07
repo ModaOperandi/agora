@@ -5,7 +5,7 @@ Frontend work is a gloriously diverse ecosystem of technologies - many of them o
 
 # Languages & Frameworks
 
-## Decided
+## Adopt
 
 ### React
 
@@ -55,7 +55,7 @@ higher level than most JS-centric tools, with more aggressive and comprehensive 
 
 Working with existing JS in TypeScript is extremely simple. The only real requirement is to create or download a type
 definitions file for the existing library, and editor and compilation tools largely handle the rest of the work of
-integrating intellisense or `tsc`.
+integrating with intellisense or `tsc`.
 
 #### React?
 
