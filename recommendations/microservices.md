@@ -7,6 +7,13 @@ Moda is opportunistically moving functionality out of its Rails monolith (Mojo) 
 
 ## Assess
 
+### http4s
+
+_TODO: Summary of the details below._
+
+[Details](https://github.com/ModaOperandi/agora/blob/master/recommendations/details/play.md)
+
+
 ### Kotlin
 
 Kotlin is increasingly being considered as a viable language option for microservices. Moda Tech should keep an eye on it as a "better Java" if functional programming is not a priority. Moving Kotlin out of Assess would require a strong estimate of the level of investment to support it at the platform level.
@@ -15,6 +22,13 @@ Kotlin is increasingly being considered as a viable language option for microser
 
 
 ## Trial
+
+### Play
+
+Battle-tested HTTP / MVC framework that is the industry go-to for Scala development; supports Futures and Akka.
+
+[Details](https://github.com/ModaOperandi/agora/blob/master/recommendations/details/play.md)
+
 
 ### Scala
 
