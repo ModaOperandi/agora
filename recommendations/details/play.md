@@ -29,4 +29,15 @@ Cons.
 
 ##http4s
 
-Dmytro will fill this :)
+Very lightweight library, functional, built on top of FS2 and Cats Effect (or compatible).
+The only choice, really, for building a pure FP service.
+
+Pros:
+1. minimal: does not bring a world of dependencies in every project;
+2. functional: allows writing FP code that has a lot of advantages;
+3. flexible: supports multiple Json libraries (argonaut, circe, json4s, json4s-jackson)
+4. fast: supposed to be faster than akka-http and play, but there are even faster ones out there.
+
+Cons:
+1. immature: the library is heavily developed, subject to massive changes;
+2. young: documentation is scarce, beyond the minimal `Hello, World!` app.
