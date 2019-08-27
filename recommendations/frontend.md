@@ -25,6 +25,11 @@ Typescript has immense support, fantastic tutorials, and valid JS is, if not lin
 
 ## Hold
 
+### Angular
+
+Though there are a number of internal tools within Moda that use Angular as a frontend framework, React has somewhat caught up with Angular in terms of ease-of-use. Given that there are no more internal advocates of Angular over React and that some Moda apps are on Angular 1, we are deprecating usage of Angular in order to simplify our system. We are developing the plan to drive down usage of Angular over time.
+
+
 ### ReasonML
 
 [ReasonML](https://reasonml.github.io/) is an alternative syntax to [OCaml](http://www.ocaml.org/) - a language that features functional, imperative, and object-oriented programming with a compiler that employs static typing and type inference. Though Moda Tech trialed ReasonML, we decided to deprecate its usage due to: steep learning curve, low internal knowledge, and lacking community support / documentation.

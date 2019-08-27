@@ -2,7 +2,7 @@
 
 [React](https://reactjs.org/) is Facebook's UI library for creating dynamic, quickly modified UI trees based on
 Javascript. It is easily the most popular Frontend UI/component library currently in use, with a rich toolset and
-powerful set of suggested patterns based in functional composition and immutability. Given it's simplicity and purity
+powerful set of suggested patterns based in functional composition and immutability. Given its simplicity and purity
 with regards to staying true to functional Javascript, it is also easily hackable, resulting in a large community
 of packages for creating "true to form" libraries that complement React's core feature set well.
 
