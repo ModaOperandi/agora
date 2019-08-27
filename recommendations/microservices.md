@@ -9,7 +9,7 @@ Moda is opportunistically moving functionality out of its Rails monolith (Mojo) 
 
 ### http4s
 
-_TODO: Summary of the details below._
+Very lightweight library, functional, built on top of FS2 and Cats Effect (or compatible). The only choice, really, for building a pure FP service.
 
 [Details](https://github.com/ModaOperandi/agora/blob/master/recommendations/details/play.md)
 
