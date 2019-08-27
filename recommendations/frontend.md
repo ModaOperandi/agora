@@ -27,7 +27,7 @@ Typescript has immense support, fantastic tutorials, and valid JS is, if not lin
 
 ### Angular
 
-Though there are a number of internal tools within Moda that use Angular as a frontend framework, React has somewhat caught up with Angular in terms of ease-of-use. Given that there are no more internal advocates of Angular over React and that some Moda apps are on Angular 1, we are deprecating usage of Angular in order to simplify our system. We are developing the plan to drive down usage of Angular over time.
+Though there are a number of internal tools within Moda that use Angular as a frontend framework, React has somewhat caught up with Angular in terms of ease-of-use. Furthermore, React has easily surpassed Angular at this point in terms of clarity, boilerplate (or lack thereof) and dynamic capabilities. Given that there are no more internal advocates of Angular over React and that some Moda apps are on Angular 1, we are deprecating usage of Angular in order to simplify our system. We are developing the plan to drive down usage of Angular over time.
 
 
 ### ReasonML
