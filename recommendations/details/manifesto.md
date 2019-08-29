@@ -12,9 +12,9 @@
 
 - We try to keep moving projects forward and not succumb to analysis paralysis. If blocked, we ask for help and input to keep moving forward and release. We encourage a culture of “ask for forgiveness, not permission.” We prioritize “two-way doors”, include rollbacks plans as part of the deployment strategy, and fail back to previous state in the face of unanticipated issues.
 
-- We feel like there is always more to learn. We strive for continuously expanding our knowledge of our own systems as well as reading about new tools which may be beneficial to use at Moda. We introduce new technologies in a manner that can be supported in the absence of an individual.
+- We strive for continuously expanding our knowledge of our own systems as well as reading about new tools which may be beneficial to use at Moda. We introduce new technologies in a manner that can be supported in the absence of an individual.
 
-- Mentoring and Growing Team Members: we conduct technological conversations in public forums, to elevate the skills of those around us and we look for opportunities for others to take on “stretch” tasks, with a level of support that sets them up for success.
+- We conduct technological conversations in public forums, to elevate the skills of those around us and we look for opportunities for others to take on “stretch” tasks, with a level of support that sets them up for success.
 
 - It is important to review pull requests for team members and provide feedback. We never use pull requests to demonstrate individual brilliance, this is merely a useful tool for providing friendly feedback so that we can continuously improve our code. We listen to others and are open to feedback. We don’t get hung up on minutiae, but do stand up for the important decisions.
 
