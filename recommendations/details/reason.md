@@ -2,6 +2,13 @@
 
 [ReasonML](https://reasonml.github.io/) is an alternative syntax to [OCaml](http://www.ocaml.org/) - a language that features functional, imperative, and object-oriented programming with a compiler that employs static typing and type inference. It was founded by the creator of ReactJS, [Jordan Walke](https://github.com/jordwalke), with the backing of Facebook, Bloomberg, and other individual contributors within the open source community.
 
+## Why not?
+
+- Steep learning curve
+- Limited internal expertise
+- Documentation could be better
+- Community support is lacking
+
 ## Why?
 
 Reason leverages the power of OCaml's compiler, while providing a familiar syntax, in an effort to create a clean, fast, and effective way to write JS. It provides the ability to create safe and robust frontend applications. 

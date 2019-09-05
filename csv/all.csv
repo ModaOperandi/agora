@@ -1,11 +1,16 @@
 name,ring,quadrant,isNew,description
-"Placeholder","Adopt","Platforms",FALSE,"<p>TBD</p>"
+"Artifactory","Adopt","Tools",FALSE,"<p>Defacto industry standard for providing multiple different package repositories (npm, Maven, Docker, etc).</p>
+
+<p><a href=""https://github.com/ModaOperandi/agora/blob/master/recommendations/details/packages.md"">Details</a></p>"
+"React","Adopt","Languages & Frameworks",FALSE,"<p>The most popular Frontend UI/component library currently in use, with a rich toolset and powerful set of suggested patterns based in functional composition and immutability. React's philosophy of treating UI's as a dynamically generated tree of functionally composable elements of style, functionality, and output, represents a very strong foundation with which to build frontend applications.</p>
+
+<p><a href=""https://github.com/ModaOperandi/agora/blob/master/recommendations/details/react.md"">Details</a></p>"
 "Terraform","Trial","Tools",FALSE,"<p>Terraform is the current best-in-class <a href=""https://www.hashicorp.com/resources/what-is-infrastructure-as-code"">infrastructure-as-code</a>) provider, providing (among other things) a multi-service approach through the ""front door"" of provider APIs that is actively developed both via core HashiCorp support and the open source community.</p>
 
 <p><a href=""https://github.com/ModaOperandi/agora/blob/master/recommendations/details/terraform.md"">Details</a></p>"
-"ReasonML","Trial","Languages & Frameworks",FALSE,"<p><a href=""https://reasonml.github.io/"">ReasonML</a> is an alternative syntax to <a href=""http://www.ocaml.org/"">OCaml</a> - a language that features functional, imperative, and object-oriented programming with a compiler that employs static typing and type inference. It was founded by the creator of ReactJS, <a href=""https://github.com/jordwalke"">Jordan Walke</a>, with the backing of Facebook, Bloomberg, and other individual contributors within the open source community.</p>
+"TypeScript","Trial","Languages & Frameworks",FALSE,"<p>Typescript has immense support, fantastic tutorials, and valid JS is, if not lint-passing, valid TS. As such, the learning curve should be quite minimal. It is created by Microsoft as a compile-time-typed alternative to Javascript, with a large community of tooling and cross-mixing with existing JS libraries.</p>
 
-<p><a href=""https://github.com/ModaOperandi/agora/blob/master/recommendations/details/reason.md"">Details</a></p>"
+<p><a href=""https://github.com/ModaOperandi/agora/blob/master/recommendations/details/typescript.md"">Details</a></p>"
 "Scala","Trial","Languages & Frameworks",FALSE,"<p>Scala is a more-mature modern language that gives Moda Tech an approachable entry to functional programming. It enjoys widespread adoption and many library options for HTTP frameworks, testing, actors, etc.</p>
 
 <p><a href=""https://github.com/ModaOperandi/agora/blob/master/recommendations/details/scala.md"">Details</a></p>"
@@ -20,4 +25,8 @@ name,ring,quadrant,isNew,description
 "CloudFormation","Hold","Tools",FALSE,"<p>Being only AWS-specific and generally lagging behind new services and API improvements in AWS itself, there are other better options for infrastructure-as-code.</p>
 
 <p><a href=""https://github.com/ModaOperandi/agora/blob/master/recommendations/details/cloudformation.md"">Details</a></p>"
+"ReasonML","Hold","Languages & Frameworks",FALSE,"<p><a href=""https://reasonml.github.io/"">ReasonML</a> is an alternative syntax to <a href=""http://www.ocaml.org/"">OCaml</a> - a language that features functional, imperative, and object-oriented programming with a compiler that employs static typing and type inference. Though Moda Tech trialed ReasonML, we decided to deprecate its usage due to: steep learning curve, low internal knowledge, and lacking community support / documentation.</p>
+
+<p><a href=""https://github.com/ModaOperandi/agora/blob/master/recommendations/details/reason.md"">Details</a></p>"
+"Placeholder","Hold","Platforms",FALSE,"<p>TBD</p>"
 "Placeholder","Hold","Techniques",FALSE,"<p>TBD</p>"

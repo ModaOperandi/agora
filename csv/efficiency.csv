@@ -1,0 +1,7 @@
+name,ring,quadrant,isNew,description
+"Artifactory","Adopt","Tools",FALSE,"<p>Defacto industry standard for providing multiple different package repositories (npm, Maven, Docker, etc).</p>
+
+<p><a href=""https://github.com/ModaOperandi/agora/blob/master/recommendations/details/packages.md"">Details</a></p>"
+"Placeholder","Trial","Platforms",FALSE,"<p>TBD</p>"
+"Placeholder","Assess","Languages & Frameworks",FALSE,"<p>TBD</p>"
+"Placeholder","Hold","Techniques",FALSE,"<p>TBD</p>"
