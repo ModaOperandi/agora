@@ -5,6 +5,16 @@ Moda is opportunistically moving functionality out of its Rails monolith (Mojo) 
 
 # Languages & Frameworks
 
+## Hold
+
+### JsonApi
+
+[JsonApi](https://jsonapi.org) is a specification for API requests and responses using JSON format. A main goal of the specification is to optimize HTTP requests, both in terms of the number of requests and the size of the data payload exchanged between clients and servers. While this is an extremely important consideration for customer facing layers, it is of less importance for micro-services, which reside on the same fast network.
+
+The specification is used by mojo and the website.
+
+The alternative is an API-first approach, where the only way to describe an API and its data is through an IDL, and all necessary code is generated from that IDL, and nothing is written by hand. This eliminates any confusion about field names, their types, the order, and so on. Whether we adopt something like OpenAPI (formerly known as Swagger) or something similar, there should be no need for JsonApi.
+
 ## Assess
 
 ### http4s
