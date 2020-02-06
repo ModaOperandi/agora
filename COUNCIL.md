@@ -54,7 +54,7 @@ TODO: Consider/discuss term limits or some other means of keeping the Council at
 ## Council Meetings
 
 * The Council will meet once weekly, to help gain momentum. The Council will revisit this in the future to decide if this cadence continues making sense.
-* Councilmembers should do their best to attend Council meetings.
+* Councilmembers should do their best to attend Council meetings. Continued lack of attendance may result in expulsion from the Council.
 * The main goal of the meetings is to share information as well as discuss and decide on architectural topics that affect the entire tech organization.
 * All members can raise topics to be discussed at Council meetings.
 * The meeting agenda will be distributed in advance of every meeting.
@@ -63,6 +63,22 @@ TODO: Consider/discuss term limits or some other means of keeping the Council at
 * In addition, each meeting will allow for up to 5 additional people to sign up to attend, based on the agenda items.
 * Each meeting has a scribe to keep track of the discussion in a Github comment on a PR.
 * Meeting minutes are shared (as links to Github comments) with all of Moda Tech after each meeting.
+
+
+## Council Meeting Organizer
+
+The Council meeting will be organized on a monthly rotating basis by one of the Council members. This is to distribute the organizing load while also encouraging different viewpoints/priorities from all disciplines represented on the Council. The responsbilities of the Organizer include:
+
+* Set the agenda for the upcoming week's meeting.
+* Distribute the agenda to all of Tech, and collect signups for non-Councilmember attendance. Send out meeting invites accordingly.
+* Encourage members from across the org to contribute PRs towards those agenda items.
+* Drive conversation around existing PRs, in advance of the meeting.
+* During the meeting, take notes in the PRs.
+* Present Agora Council summary at End-of-Sprint Demos (bi-weekly).
+* At the end of the rotation, help identify the next Organizer.
+
+The current Organizer will be listed in the [meeting agenda](https://github.com/ModaOperandi/agora/wiki/Agora-Council-Meeting-Agenda-and-Signups).
+
 
 
 ## Decision making process
