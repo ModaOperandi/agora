@@ -49,7 +49,7 @@ API CI pipeline allows to move out client libraries maintenance from producer so
 
 Here's diagram of models specification workflow:
 
-<img src="images/spec-workflow.png">
+<img src="../images/spec-workflow.png">
 
 ### Goldfish
 
