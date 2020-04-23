@@ -43,6 +43,17 @@ OrderEvent:
     cancelled: OrderCancelledEvent
 ```
 
+Pros:
+1. Unified definitions of models with serialization/deserialization.
+2. API observability - spec is more readable then models in code.
+3. Ability to add producers/consumers in other languages.
+4. Allows have most minimal dependency between producer and consumer - by schema only.
+
+Cons:
+1. Spec is not programming language - it does not allow a lot of customizations of serialization/deserialization.
+2. It is some additional format developers need to know.
+
+
 ### API CI Pipeline
 
 API CI pipeline allows to move out client libraries maintenance from producer source codebase. Instead producer maintains only models spcification. Models specification is used in producer source code for models generation. Also models specification is published into specifications repository where it's picked up by API CI for generating client library.
@@ -51,6 +62,10 @@ Here's diagram of models specification workflow:
 
 <img src="../images/spec-workflow.png">
 
+API CI pipeline produces versioned client library with respect to spec versions. This provides versioning for queue messages schemas.
+
 ### Goldfish
 
-When starting new service either akka or cats producer/consumer code could be scaffolded. Scaffolded code is not maintained by any tool - once generated service developers are responsible for maintenaning it. Goldfish command line tool is intended for such kind of scaffolding as it's capable of creating unified CI/CD pipeline and everything required to deploy scaffolded services into the platform.
+When starting new service either akka or cats producer/consumer code could be scaffolded. Scaffolded code is not maintained by any tool (opposite to generated code) - once generated service developers are responsible for maintenaning it. Goldfish command line tool is intended for such kind of scaffolding as it's capable of creating unified CI/CD pipeline and everything required to deploy scaffolded services into the platform.
+
+Scaffolding service code, besides models types, allows to support both akka and cats based approaches. Code that is needed to produce/consume queue messages is relatively small compared to models types definitions.
