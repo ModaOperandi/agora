@@ -19,7 +19,7 @@ There are many different ways of writing Terraform, all depending on the prefere
 ### Formatting
 
 #### What type of casing should be used?
-When naming Terraform resources, snake_casing should be used. When naming files, kebab-casing should be used. So, you could end up with a filename like iam-my_role.tf. 
+When naming Terraform resources, snake_casing should be used. When naming AWS resources, kebab-casing should be used. When naming files, combine the two to end up with a filename like iam_my-role.tf. 
 
 
 #### How should HCL be formatted?
