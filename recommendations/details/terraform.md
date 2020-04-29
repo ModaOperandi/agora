@@ -183,20 +183,20 @@ A variable should be defined in a variables.tf file. This way, it is clear what 
 If there are multiple instances of one module, however, some variables can be defined inline if they change between module invocations. For example:
 
 ```
-  module my_module_instance1 {
+  module my_module_instance-1 {
     source       = ""
     disk_size    = 20
     my_var       = var.my_var
     my_other_var = var.my_other_var
-    name         = "instance1"
+    name         = "instance-1"
   }
 
-  module my_module_instance2 {
+  module my_module_instance-2 {
     source       = ""
     disk_size    = 10
     my_var       = var.my_var
     my_other_var = var.my_other_var
-    name         = "instance2"
+    name         = "instance-2"
   }
 ```
 
