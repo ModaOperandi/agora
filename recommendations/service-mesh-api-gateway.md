@@ -23,3 +23,7 @@ Deploy [Istio](https://istio.io/latest/docs/concepts/what-is-istio/) into each E
 * Open source - no additional cost other than EKS usage
 * Allows for native A/B testing of services, canary deployments, percentage-based rollouts, service tracing
 * Can configure JWT/OAuth token generation as needed
+
+### Concerns
+* If we do need JWT-type auth, we'd need to write our own Lambda authorizer - not trivial
+* Istio may be able to front legacy services anyway - should explore this first
