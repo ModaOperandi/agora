@@ -26,6 +26,7 @@ Some "rare" stacks could be supported individually without standard support in t
 #### Codegen
 
 * API related code moved to code generation.
+* Could be partial migration of models only.
 
 #### Zero
 
@@ -38,7 +39,7 @@ Some "rare" stacks could be supported individually without standard support in t
 | scala  | yes                 | Build + Deployment + Codegen |
 | python | no                  | Build + Deployment           |
 | java   | no                  | Deployment                   |
-| ruby   | no                  | Zero                         |
+| ruby   | no                  | Deployment                   |
 | flow   | no                  | ???                          |
 
 ## Required Work
@@ -51,7 +52,6 @@ Some "rare" stacks could be supported individually without standard support in t
 
 Mojo-related issues:
 1. MySQL database access is not provided from platform. Each individual case should be considered separately.
-2. Network HTTP calls are not allowed from platform to Mojo. Each individual case should be considered separately.
 
 ## Migration Candidates
 
@@ -61,7 +61,7 @@ These services are already on scala stack and already using codegen. Full Build 
 
 Next migrations are TBD
 
-# Mogration Plan
+# Migration Plan
 
 This is suggested migration plan, might be not fully applicable depending on service itself.
 
