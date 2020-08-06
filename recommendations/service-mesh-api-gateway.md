@@ -2,7 +2,7 @@
 
 ## Goal
 
-The ultimate goal is for all existing services, both legacy and current platforms, to have access to token authorization without needing to implement it per service. 
+The ultimate goal is for all existing services, both legacy and current platforms, to have access to token authorization without needing to implement it per service. The best case scenario is that all existing services will be able to integrate with Istio deployed on EKS, regardless of their underlying platform. If this is not easily achievable, we will use a combination of AWS API gateway for legacy services, and Istio for services on EKS.
 
 ## Proposed Architecture
 
@@ -24,6 +24,6 @@ Deploy [Istio](https://istio.io/latest/docs/concepts/what-is-istio/) into each E
 * Allows for native A/B testing of services, canary deployments, percentage-based rollouts, service tracing
 * Can configure JWT/OAuth token generation as needed
 
-### Concerns
+### Concerns/Notes
 * If we do need JWT-type auth, we'd need to write our own Lambda authorizer - not trivial
-* Istio may be able to front legacy services anyway - should explore this first
+* AWS Appmesh does work natively with all AWS platforms, using the open-source tool Envoy as a backend. It could also be worth exploring this as an option, though non-cloud-specific tools are preferred
