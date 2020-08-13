@@ -27,3 +27,4 @@ Deploy [Istio](https://istio.io/latest/docs/concepts/what-is-istio/) into each E
 ### Concerns/Notes
 * If we do need JWT-type auth, we'd need to write our own Lambda authorizer - not trivial
 * If we want to do full service mesh from the get-go, we'd have to update our legacy apps to run with Istio - ECS apps need an Istio sidecar, Lambdas need to be exposed via API Gateway
+* Can also deploy Envoy across the board and utilize AWS App Mesh for a slightly more straightforward, more AWS-dependent solution
