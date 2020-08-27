@@ -4,16 +4,24 @@
 
 The ultimate goal is for all existing services, both legacy and current platforms, to have access to token authorization without needing to implement it per service. 
 
-## Options
+## Proposal Summary
 
-* AWS App Mesh - Deploy Envoy proxy w/ each legacy service & into each EKS cluster, manage services through AWS - 
+Deploy [Istio](https://istio.io/latest/docs/concepts/what-is-istio/) into each EKS cluster for environment-separated service meshes. Because all of our legacy services are ECS or Lambda based, we should be able to update their deployments to include the Envoy proxy. This would allow them to integrate with Istio's control plane.
+
+## Questions
+* What kind of authorization do we need? JWT tokens? Or would an API key be sufficient?
+* Do we care if our solution is AWS dependent?
+* How much modification of existing legacy services are we willing to do?
+
+## Options
+* AWS App Mesh - Deploy Envoy proxy w/ each legacy service & into each EKS cluster, manage services through AWS 
 * Istio - Deploy Istio into EKS clusters & Envoy proxy w/ each legacy service and register to Istio, manage services through Istio
 * API Gateway/Istio hybrid - Deploy Istio into EKS and utilize it for those services, use API Gateway for legacy services 
 
 ### AWS App Mesh
 * AWS App Mesh comes at no additional cost
 * Not compatible with New Relic
-* No security offerings
+* No security offerings - ultimately this is not a feasible option for our needs
 
 ### Istio
 * Open source - no additional cost other than EKS usage
@@ -29,17 +37,5 @@ The ultimate goal is for all existing services, both legacy and current platform
 * Can track API calls, latency, error rates through the gateway if desired
 * If we do need JWT-type auth, we'd need to write our own Lambda authorizer for API gateway - not trivial
 
-## Questions
 
-* What kind of authorization do we need? JWT tokens? Or would an API key be sufficient?
-* Do we care if our solution is AWS dependent?
-* How much modification of existing legacy services are we willing to do?
-
-## Proposed Architecture
-
-<img src="/images/gateway-servicemesh.png">
-
-## Proposal Summary
-
-Deploy [Istio](https://istio.io/latest/docs/concepts/what-is-istio/) into each EKS cluster for environment-separated service meshes. Legacy services will be fronted by a centralized AWS API gateway using Lambda authorizers deployed in the corresponding accounts. The gateway will be removed once all legacy services have been migrated to EKS.
 
