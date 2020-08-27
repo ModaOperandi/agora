@@ -1,4 +1,4 @@
-# Service Mesh and API Gateway Solution
+# Service Mesh Solution
 
 ## Goal
 
