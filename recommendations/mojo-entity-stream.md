@@ -1,6 +1,5 @@
-
-
 # High level entity streaming from mojo
+## Phase 1 - initial implementation
 
 Replicating data owned by some other service (currently mostly only mojo) can be a burden when the data is too low-level. For example the marketing-email service's bootstrap takes ~6-8hours after each field added
 Subscribing to binlogger and building your own data out of it means that we have to re-write the business logic from above the raw data in every new service.
@@ -26,3 +25,63 @@ Another queue in mojo
 A sample spec of variants, with data needed for Algolia indexing:
 https://github.com/ModaOperandi/event-models/pull/1/files
 
+
+## Phase 2
+
+We have successfully deployed sku event streaming to production, with two live consumers: PLG's item-masters, and the pricing-service. We would like to create other entity streams, the next ones in question are regarding picktickets and return authorizations.
+
+### Goals:
+During our usage and deployment of the current system we had some grievances that we would like to address before moving forward:
+1 - model versioning: during the release we had to coordinate model changes and service deployments to make sure no required fields would cause a deserialization error (we had a pricing-service outage because of this). We should address this by versioning models and streams.
+2 - define a high-level usage of the model streams, what are the business entities we would like to track with these streams? - we could look at what shopify cares about and start our definitions in that direction
+3 - The SQS approach seems wasteful, we should figure out a new way of keeping track and handling changes
+
+### Proposals
+#### Model Versioning: high-level aggreement
+One seemingly popular option is to totally ditch spec and use something standard, but for the sake of this problem we're going to stick with spec. Spec has a versioning functionality, and goldfish is capable of releasing a model to 'prod' which means the specific model version is locked, and further changes MUST be on a newer version.
+The original idea was to create separate dynamodb tables and attach a stream to it, include the version number in the stream name and publish events to both 'old' and 'new' streams.
+This approach seems feasable, some quality-of-life code could be written to automatically generate the dynamodb and stream resources in the prodrds account.
+When a new model is published on a new stream, we alert all model consumers to start consuming the new stream, maybe reload their data from dynamodb if needed and once all consumers are on the new stream, we turn off the old one.
+
+#### Business entities: high-level aggreement
+Currently the only entity in production is sku. This was an easy choice since skus are the base of any ecommerce platform. Other entities could be up to debate.
+One suggestion would be:
+User
+  ...
+  <Personal Details>
+  <Addresses>
+  <PaymentMethods - low risk, absolutely necessary data only>
+  credits, loyalty points etc.
+
+Order
+  OrderItem
+    ...
+    <product info>
+    <amounts paid/refunded>
+    <payment transactions??>
+    status
+    <Promos Applied>
+  <PaymentTransactions>
+  <Promos applied>
+
+Shipment
+  ...
+  ShipmentType: CUSTOMER|ASN|VT|TO|
+  <fromAddress>
+  <toAddress>
+  packages:
+    <items>
+  ...
+
+#### Queue optimization: Implementation detail
+currently whenever a record is changed in mojo we send a message to sqs stating that an entity has changed, and we'd like to build a new model of the related entities. The messages are jsons, denoting the ActiveRecord model name, and how to find it in the database. {type: "Catalog::Variant", key: "id", value:"123"}
+From an SQS message like the above we build all the models this change affected (currently only sku)
+This approach is wasteful because sometimes during an 'action' we save a record more than once, more than one message is queued, and we generate the exact same model twice.
+A deduplication method would be required which could be served by dynamodb. Whenever a variant changes, we just upsert the document, and there would only be one instance of that change recorded to dynamodb.
+A queue with multiple workers then would process items from dynamodb.
+SQS also has the disadvantage of not being able to be queried, if we want some entities to have priority over others we would need to use multiple queues.
+Pros:
+No more deduplication, pretty straightforward to implement
+We can use the same table to query different types of entities without one type clogging the process of other types
+Cons:
+We use dynamo to manage a queue
