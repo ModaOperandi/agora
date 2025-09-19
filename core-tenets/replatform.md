@@ -9,7 +9,7 @@ This is the core tenet from AWS; AWS does the undifferentiated heavy lifting (i.
 
 Enterprise software allows Moda to take advantage of expertise and product features built by a company whose entire business is to make that software great. Benefits include:
 * The feature suite will almost always be more fully baked and thought out than something we build internally.
-* We can choose the right tool for the job. 
+* We can choose the right tool for the job.
 * The third-party is responsible for platform-level uptime and incident resolution.
 * When factoring in long term maintenance and personnel salary, cost may actually be lower.
 
