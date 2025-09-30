@@ -1,6 +1,6 @@
 # NetSuite
 
-Moda is rearchitecting its system to put [NetSuite](https://3544490.app.netsuite.com/app/center/card.nl) at the core. In addition to Tech (and IT), both Finance and Ops will be using NetSuite for some of their processes. As such, it is important to be clear about which parts of NetSuite are Tech's responsibility.
+Moda is rearchitecting its system to put [NetSuite](https://3544490.app.netsuite.com/app/center/card.nl) at the core. In addition to Tech (and TechOps), both Finance and Ops will be using NetSuite for some of their processes. As such, it is important to be clear about which parts of NetSuite are Tech's responsibility.
 
 
 ## Defaults
@@ -9,7 +9,7 @@ Because NetSuite has a large number of techinical integrations with other parts 
 
 At a high level, Tech will own the "infrastructure" (e.g. definitions, types, workflows, etc) in NetSuite and partners will own the "data" (e.g. transfer orders, purchase orders, GL entries, etc) in NetSuite; sometimes Tech will also be responsible for "data" (e.g. automated transfer order creation).
 
-Additionally, IT will be responsible for user accounts and permissions.
+Additionally, TechOps will be responsible for user accounts and permissions.
 
 
 ## Governance
@@ -21,13 +21,13 @@ Additionally, IT will be responsible for user accounts and permissions.
 
 Unfortunately, permission assignment to roles cannot be managed through automated processes (i.e. via the API or Restlets) and must be manually managed through the NetSuite UI. Furthermore, SCIM is only available when paying for [an additional security package](https://www.netsuite.com/portal/platform/infrastructure/operational-security.shtml) (estimated to cost $50k per year), so for now we will manage user-role assignment manually as well. With any manual process, it is good to [trust-but-verify](../core-tenets/collaboration.md#trust-but-verify). Our verification approach will be:
 
-* Moda IT will create NetSuite-related groups in Okta.
+* Moda TechOps will create NetSuite-related groups in Okta.
   * Group/role name should be of the format `{department}/{role_name}`.
   * Group is not NetSuite-specific and should not be named as such - because those groups may also grant access to other tools.
   * The role in NetSuite should include the applicable permissions.
   * Any Okta group that corresponds to a NetSuite role should additionally be created in NetSuite.
-* Moda IT will manually manage [role permissions](https://3544490.app.netsuite.com/app/common/search/search.nl?searchtype=Role) and [user role membership](https://3544490.app.netsuite.com/app/setup/listusers.nl).
-  * When adding people to groups in Okta, IT will need to also add NetSuite users to the corresponding role in NetSuite.
+* Moda TechOps will manually manage [role permissions](https://3544490.app.netsuite.com/app/common/search/search.nl?searchtype=Role) and [user role membership](https://3544490.app.netsuite.com/app/setup/listusers.nl).
+  * When adding people to groups in Okta, TechOps will need to also add NetSuite users to the corresponding role in NetSuite.
 * We will create and maintain a Google Sheet with permission ownership assignment. Columns: department, permission, type (view/create/edit/full).
 * Google Sheet will be synced to Snowflake.
 * Okta data (users, groups, group user membership) will be synced to Snowflake.
@@ -58,14 +58,14 @@ Unfortunately, permission assignment to roles cannot be managed through automate
 ## Next steps + cleanup
 Moda Tech has a list of roles and permissions from Finance.
 
-First step will be to create roles in NetSuite. IT should own this. Once this is complete, it is the main thing the business needs from Tech.
+First step will be to create roles in NetSuite. TechOps should own this. Once this is complete, it is the main thing the business needs from Tech.
 * Create roles with correct permissions in NetSuite.
 * Assign users to those roles.
 * Remove users from legacy roles.
 * Wait ~2 months for users to raise any issues (keeping in mind monthly Finance processes).
 * Once the new roles have the correct permissions, delete existing roles that can be deleted. For any not-deletable-roles, make sure there are no users in them.
 
-After the above, we should work to get the checks in place, with alerts going to IT (low priority, during business hours).
+After the above, we should work to get the checks in place, with alerts going to TechOps (low priority, during business hours).
 
 
 ## Alternatives considered
